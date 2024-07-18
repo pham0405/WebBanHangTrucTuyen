@@ -195,11 +195,11 @@ d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0
                     class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
                     <div class="support-box text-end d-none d-xl-block">
                         <span class="fs-6 secondary-font text-muted">Phone</span>
-                        <h5 class="mb-0">+980-34984089</h5>
+                        <h5 class="mb-0">+84878804550</h5>
                     </div>
                     <div class="support-box text-end d-none d-xl-block">
                         <span class="fs-6 secondary-font text-muted">Email</span>
-                        <h5 class="mb-0">waggy@gmail.com</h5>
+                        <h5 class="mb-0">dpktn@gmail.com</h5>
                     </div>
 
 
@@ -218,12 +218,12 @@ d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0
                 <div class="d-flex d-lg-none align-items-end mt-3">
                     <ul class="d-flex justify-content-end list-unstyled m-0">
                         <li>
-                            <a href="account.html" class="mx-3">
+                            <a href="" class="mx-3">
                                 <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="wishlist.html" class="mx-3">
+                            <a href="" class="mx-3">
                                 <iconify-icon icon="mdi:heart" class="fs-4"></iconify-icon>
                             </a>
                         </li>

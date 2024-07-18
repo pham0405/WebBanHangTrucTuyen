@@ -1,4 +1,3 @@
-
 <div class="main-panel">
     <div class="main-header">
       <div class="main-header-logo">

@@ -38,7 +38,7 @@
     <link rel="stylesheet" href="{{asset('assets/admin/css/plugins.min.css')}}" />
     <link rel="stylesheet" href="{{asset('assets/admin/css/kaiadmin.min.css')}}" />
 
-    <!-- CSS Just for demo purpose, don't include it in your project -->
+    
     <link rel="stylesheet" href="{{asset('assets/admin/css/demo.css')}}"/>
   </head>
   <body>
@@ -49,7 +49,7 @@
       <!-- End Sidebar -->
 
 
-      <x-admin.headerAdmin></x-admin.headerAdmin>
+     
 
       <!-- Custom template | don't include it in your project! -->
       <x-admin.dashboard></x-admin.dashboard>

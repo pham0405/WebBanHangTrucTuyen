@@ -19,7 +19,9 @@ storage/*.key
 .env
 .env.example
 composer.lock
-Homestead.yaml
+
+
+>>>>>>> origin/duynlhpc06843
 Homestead.json
 /.vagrant
 .phpunit.result.cache

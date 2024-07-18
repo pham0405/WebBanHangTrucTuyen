@@ -11,6 +11,7 @@ class HomepageController extends Controller
     public function index(){
         return view('layout.master');
     }
+
     public function products(){
         return view('layout.client.products');
     }
@@ -23,4 +24,5 @@ class HomepageController extends Controller
     public function orther(){
         return view('layout.client.orther');
     }
+
 }

@@ -1,5 +1,6 @@
 @extends('layout.master')
-@section('title' , 'Edit User')
+
+@section('title' , 'Homepage')
 @section('content')    
 @endsection
 @push('style')

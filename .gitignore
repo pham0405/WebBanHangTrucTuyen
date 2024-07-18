@@ -17,7 +17,8 @@ public_html/hot
 
 storage/*.key
 .env
-Homestead.yaml
+.env.example
+composer.lock
 Homestead.json
 /.vagrant
 .phpunit.result.cache

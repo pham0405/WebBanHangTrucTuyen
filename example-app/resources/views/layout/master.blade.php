@@ -13,7 +13,7 @@
 
   
     <x-header></x-header>
-    @yield('content')
+    @yield('contents')
 
 
    <x-slidebar></x-slidebar>

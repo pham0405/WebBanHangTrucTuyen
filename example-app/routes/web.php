@@ -13,6 +13,8 @@ Route::get('/baiviet',[HomepageController::class , 'blog'])->name('blog');
 Route::get('/lienhe',[HomepageController::class , 'contact'])->name('contact');
 Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
+
+
 // admin
 
 

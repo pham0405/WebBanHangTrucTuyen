@@ -9,7 +9,7 @@ class HomepageController extends Controller
 {
     //
     public function index(){
-        return view('layout.master');
+        return view('layout.client.homepage');
     }
 
     public function products(){
@@ -23,7 +23,7 @@ class HomepageController extends Controller
     public function contact(){
         return view('layout.client.contact');
     }
-    
+
     public function orther(){
         return view('layout.client.orther');
     }

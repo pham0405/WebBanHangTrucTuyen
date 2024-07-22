@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\Product\CategoryController;
 use App\Http\Controllers\client\HomepageController;
+use App\Http\Controllers\Admin\AdminController;
 
 
 
@@ -15,3 +16,4 @@ Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
 // admin
 
+Route::get('/admin',[AdminController::class , 'indexAdmin'])->name('indexAdmin');

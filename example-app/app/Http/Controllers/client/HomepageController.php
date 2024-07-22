@@ -8,7 +8,9 @@ use Illuminate\Http\Request;
 class HomepageController extends Controller
 {
     //
-   
+   public function index(){
+    return view ('layout.master');
+   }
     public function products(){
         return view('layout.client.products');
     }

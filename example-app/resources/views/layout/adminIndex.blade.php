@@ -48,9 +48,6 @@
       <x-admin.slidebarAdmin></x-admin.slidebarAdmin>
       <!-- End Sidebar -->
 
-
-      <x-admin.headerAdmin></x-admin.headerAdmin>
-
       <!-- Custom template | don't include it in your project! -->
       <x-admin.dashboard></x-admin.dashboard>
       <!-- End Custom template -->

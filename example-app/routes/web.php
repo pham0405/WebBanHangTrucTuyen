@@ -14,6 +14,16 @@ Route::get('/baiviet',[HomepageController::class , 'blog'])->name('blog');
 Route::get('/lienhe',[HomepageController::class , 'contact'])->name('contact');
 Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
+
+
 // admin
 
-Route::get('/admin',[AdminController::class , 'indexAdmin'])->name('indexAdmin');
+
+
+
+
+
+Route::get('/admin',[AdminController::class , 'index'])->name('admin');
+
+
+

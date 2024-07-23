@@ -14,19 +14,14 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('price');
-            $table->text('description');
-            
-            // Define category_id as foreign key referencing id column in categories table
-            $table->foreignId('category_id')
-                  ->nullable()
-                  ->constrained()
-                  ->onDelete('set null');
-    
+            $table->decimal('price', 8, 2);
+            $table->text('description')->nullable();
+            $table->string('image')->nullable();
+            $table->integer('quantity');
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.

@@ -1,123 +1,81 @@
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
-    <meta
-      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-      name="viewport"
-    />
-    <link
-      rel="icon"
-      href="assets/img/kaiadmin/favicon.ico"
-      type="image/x-icon"
-    />
 
-    <!-- Fonts and icons -->
-    <script src="{{asset('assets/admin/js/plugin/webfont/webfont.min.js')}}"></script>
-    <script>
-      WebFont.load({
-        google: { families: ["Public Sans:300,400,500,600,700"] },
-        custom: {
-          families: [
-            "Font Awesome 5 Solid",
-            "Font Awesome 5 Regular",
-            "Font Awesome 5 Brands",
-            "simple-line-icons",
-          ],
-          urls: ["{{asset('assets/admin/css/fonts.min.css')}}"],
-        },
-        active: function () {/admin
-          sessionStorage.fonts = true;
-        },
-      });'
-    </script>
+<head>
 
-    <!-- CSS Files -->
-    <link rel="stylesheet" href="{{asset('assets/admin/css/bootstrap.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/admin/css/plugins.min.css')}}" />
-    <link rel="stylesheet" href="{{asset('assets/admin/css/kaiadmin.min.css')}}" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    
-    <link rel="stylesheet" href="{{asset('assets/admin/css/demo.css')}}"/>
-  </head>
-  <body>
-    <div class="wrapper">
+    <title>admin</title>
 
-      <!-- Sidebar -->
-      <x-admin.slidebarAdmin></x-admin.slidebarAdmin>
-      <!-- End Sidebar -->
+    <!-- Custom fonts for this template-->
+    <link href="{{asset('assets/admin/vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
+    <!-- Custom styles for this template-->
+    <link href="{{asset('assets/admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
 
-     <a href="{{route('')}}">bấm vào đây</a>
+    <!-- Custom styles for this dataTables -->
+    <link href="{{asset('assets/admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
-      <!-- Custom template | don't include it in your project! -->
-      <x-admin.dashboard></x-admin.dashboard>
-      <!-- End Custom template -->
+    <!-- Fort awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <x-admin.slidebar></x-admin.slidebar>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+          <x-admin.header></x-admin.header>
+          @yield('contentsAdm')
+   
+            <!-- Footer -->
+           <x-admin.footer></x-admin.footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
-    <!--   Core JS Files   -->
-    <script src="{{asset('assets/admin/js/core/jquery-3.7.1.min.js')}}"></script>'
-  " <script src="{{asset('assets/admin/js/core/popper.min.js')}}"></script>
-    <script src="{{asset('assets/admin/js/core/bootstrap.min.js')}}"></script>
+    <!-- End of Page Wrapper -->
 
-    <!-- jQuery Scrollbar -->
-    <script src="{{asset('assets/admin/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js')}}"></script>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-    <!-- Chart JS -->
-    <script src="{{asset('assets/admin/js/plugin/chart.js/chart.min.js')}}"></script>
+    <!-- Bootstrap core JavaScript-->
+    <script src="{{asset('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 
-    <!-- jQuery Sparkline -->
-    <script src="{{asset('ssets/admin/js/plugin/jquery.sparkline/jquery.sparkline.min.js')}}"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="{{asset('assets/admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
-    <!-- Chart Circle -->
-    <script src="{{asset('assets/admin/js/plugin/chart-circle/circles.min.js')}}"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="{{asset('assets/admin/js/sb-admin-2.min.js')}}"></script>
 
-    <!-- Datatables -->
-    <script src="{{asset('assets/admin/js/plugin/datatables/datatables.min.js')}}"></script>
 
-    <!-- Bootstrap Notify -->
-    <script src="{{asset('assets/admin/js/plugin/bootstrap-notify/bootstrap-notify.min.js')}}"></script>
+    <!-- Page level plugins -->
+    <script src="{{asset('assets/admin/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('assets/admin/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
 
-    <!-- jQuery Vector Maps -->
-    <script src="{{asset('assets/admin/js/plugin/jsvectormap/jsvectormap.min.js')}}"></script>
-    <script src="{{asset('assets/admin/js/plugin/jsvectormap/world.js')}}"></script>
+    <!-- Page level custom scripts -->
+    <script src="{{asset('assets/admin/js/demo/datatables-demo.js')}}"></script>
 
-    <!-- Sweet Alert -->
-    <script src="{{asset('assets/admin/js/plugin/sweetalert/sweetalert.min.js')}}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Kaiadmin JS -->
-    <script src="{{asset('assets/admin/js/kaiadmin.min.js')}}"></script>
+</body>
 
-    <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-    <script src="{{asset('assets/admin/js/setting-demo.js')}}"></script>
-    <script src="{{asset('assets/admin/js/demo.js')}}"></script>
-    <script>
-      $("#lineChart").sparkline([102, 109, 120, 99, 110, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#177dff",
-        fillColor: "rgba(23, 125, 255, 0.14)",
-      });
-
-      $("#lineChart2").sparkline([99, 125, 122, 105, 110, 124, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#f3545d",
-        fillColor: "rgba(243, 84, 93, .14)",
-      });
-
-      $("#lineChart3").sparkline([105, 103, 123, 100, 95, 105, 115], {
-        type: "line",
-        height: "70",
-        width: "100%",
-        lineWidth: "2",
-        lineColor: "#ffa534",
-        fillColor: "rgba(255, 165, 52, .14)",
-      });
-    </script>
-  </body>
 </html>

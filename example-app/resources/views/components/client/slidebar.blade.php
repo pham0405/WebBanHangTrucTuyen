@@ -1013,7 +1013,7 @@
         </div>
       </section>
     
-      <section id="register" style="background: url('{{asset('assets/client/images/background-img.jpg')}}') no-repeat;">
+      <section id="register" style="background: url('images/background-img.png') no-repeat;">
         <div class="container ">
           <div class="row my-5 py-5">
             <div class="offset-md-3 col-md-6 my-5 ">
@@ -1064,7 +1064,7 @@
     
               </div>
               <div class="card position-relative">
-                <a href="single-post.html"><img src="{{asset('assets/client/images/blog1.jpg')}}" class="img-fluid rounded-4" alt="image"></a>
+                <a href="single-post.html"><img src="images/blog1.jpg" class="img-fluid rounded-4" alt="image"></a>
                 <div class="card-body p-0">
                   <a href="single-post.html">
                     <h3 class="card-title pt-4 pb-3 m-0">10 Reasons to be helpful towards any animals</h3>
@@ -1087,7 +1087,7 @@
     
               </div>
               <div class="card position-relative">
-                <a href="single-post.html"><img src="{{asset('assets/client/images/blog2.jpg')}}" class="img-fluid rounded-4" alt="image"></a>
+                <a href="single-post.html"><img src="images/blog2.jpg" class="img-fluid rounded-4" alt="image"></a>
                 <div class="card-body p-0">
                   <a href="single-post.html">
                     <h3 class="card-title pt-4 pb-3 m-0">How to know your pet is hungry</h3>
@@ -1110,7 +1110,7 @@
     
               </div>
               <div class="card position-relative">
-                <a href="single-post.html"><img src="{{asset('assets/client/images/blog3.jpg')}}" class="img-fluid rounded-4" alt="image"></a>
+                <a href="single-post.html"><img src="images/blog3.jpg" class="img-fluid rounded-4" alt="image"></a>
                 <div class="card-body p-0">
                   <a href="single-post.html">
                     <h3 class="card-title pt-4 pb-3 m-0">Best home for your pets</h3>
@@ -1189,7 +1189,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta1.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta1.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
           <div class="col instagram-item  text-center position-relative">
@@ -1197,7 +1197,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta2.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta2.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
           <div class="col instagram-item  text-center position-relative">
@@ -1205,7 +1205,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta3.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta3.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
           <div class="col instagram-item  text-center position-relative">
@@ -1213,7 +1213,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta4.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta4.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
           <div class="col instagram-item  text-center position-relative">
@@ -1221,7 +1221,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta5.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta5.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
           <div class="col instagram-item  text-center position-relative">
@@ -1229,7 +1229,7 @@
               <iconify-icon class="text-white" icon="la:instagram"></iconify-icon>
             </div>
             <a href="#">
-              <img src="{{asset('assets/client/images/insta6.jpg')}}" alt="insta-img" class="img-fluid rounded-3">
+              <img src="images/insta6.jpg" alt="insta-img" class="img-fluid rounded-3">
             </a>
           </div>
         </div>

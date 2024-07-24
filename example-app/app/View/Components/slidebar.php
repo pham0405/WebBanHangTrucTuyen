@@ -21,6 +21,7 @@ class slidebar extends Component
      */
     public function render(): View|Closure|string
     {
+
         return view('components.client.slidebar');
 
     }

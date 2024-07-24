@@ -49,7 +49,7 @@
       <!-- End Sidebar -->
 
 
-     
+     <a href="{{route('')}}">bấm vào đây</a>
 
       <!-- Custom template | don't include it in your project! -->
       <x-admin.dashboard></x-admin.dashboard>

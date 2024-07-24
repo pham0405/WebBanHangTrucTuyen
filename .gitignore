@@ -19,6 +19,9 @@ storage/*.key
 .env
 .env.example
 composer.lock
+
+
+>>>>>>> origin/duynlhpc06843
 Homestead.json
 /.vagrant
 .phpunit.result.cache

@@ -175,7 +175,7 @@
                     
                 </div>
                 <div class="support-box text-end d-none d-xl-block">
-                    <a href="" class="fs-6 secondary-font text-muted">Đăng Nhập</a>
+                    <a href="{{route('login')}}" class="fs-6 secondary-font text-muted">Đăng Nhập</a>
                     
                 </div>
 

@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
             $table->date('date');
             $table->text('address');
             $table->decimal('total', 10, 2);
@@ -23,10 +22,17 @@ return new class extends Migration
             $table->unsignedBigInteger('order_id');
             $table->string('status')->nullable();
             $table->timestamps();
+            
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products') // Ensure the table name is correct
+                ->onDelete('cascade');
+
+                $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users') // Ensure the table name is correct
                 ->onDelete('cascade');
         });
     }

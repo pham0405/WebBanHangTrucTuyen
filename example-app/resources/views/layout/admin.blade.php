@@ -39,6 +39,7 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
           <x-admin.header></x-admin.header>
+          
           @yield('contentsAdm')
    
             <!-- Footer -->

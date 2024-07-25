@@ -15,6 +15,7 @@ class ProductSeeder extends Seeder
     {
         DB::table('products')->insert([
             [
+                'id'=>1,
                 'name'=>'ALASKA NÂU ĐỎ XINH ',
                 'slug'=>'alaska-nau-do',
                 'quantity'=>'1',
@@ -26,8 +27,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>2,
                 'name'=>'POODLE VÀNG MƠ',
-                'slug'=>'poodle vàng',
+                'slug'=>'poodle-vang',
                 'quantity'=>'1',
                 'price'=>'730000',
                 'category_id'=>'2',
@@ -37,8 +39,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>3,
                 'name'=>'POODLE KEM MƠ',
-                'slug'=>'poodle màu kem mơ',
+                'slug'=>'poodle-kem-mo',
                 'quantity'=>'1',
                 'price'=>'920000',
                 'category_id'=>'2',
@@ -48,8 +51,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>4,
                 'name'=>'HUSKY XÁM',
-                'slug'=>'Chó Husky Siberian',
+                'slug'=>'husky-xam',
                 'quantity'=>'1',
                 'price'=>'420000',
                 'category_id'=>'2',
@@ -59,8 +63,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>5,
                 'name'=>'EM PUG BÉO Ú NU',
-                'slug'=>'Chó Pug',
+                'slug'=>'pug',
                 'quantity'=>'1',
                 'price'=>'710000',
                 'category_id'=>'2',
@@ -70,8 +75,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>6,
                 'name'=>'MÈO TAI CỤP',
-                'slug'=>'mèo xinh',
+                'slug'=>'meo-tai-cup',
                 'quantity'=>'1',
                 'price'=>'290000',
                 'category_id'=>'1',
@@ -80,20 +86,22 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2020/06/105610015_1675245249290219_60632172541139721_o.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [   'name'=>'MÈO GOLDEN TAI CỤP ĐỰC YÊU',
-                'slug'=>'mèo golden',
+            [   
+                'id'=>7,
+                'name'=>'MÈO GOLDEN TAI CỤP ĐỰC YÊU',
+                'slug'=>'meo-golden',
                 'quantity'=>'1',
                 'price'=>'1900000',
                 'category_id'=>'1',
-
                 'description'=>' Có nguồn gốc từ giống mèo Anh Shorthair',
                 'view'=>'1126',
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/03/b0220a826132bb6ce223.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>8,
                 'name'=>'MÈO CHÂN NGẮN TAI CỤP SIU YÊU',
-                'slug'=>'mèo chân ngắn ',
+                'slug'=>'meo-chan-ngan',
                 'quantity'=>'1',
                 'price'=>'3500000',
                 'category_id'=>'1',
@@ -103,8 +111,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>9,
                 'name'=>'EM MÈO XÁM TAI CỤP CƯNG CƯNG ',
-                'slug'=>'mèo xám',
+                'slug'=>'meo-xam',
                 'quantity'=>'1',
                 'price'=>'2450000',
                 'category_id'=>'1',
@@ -114,8 +123,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
-                'name'=>'MÈO CHÂN NGẮN TAI CỤP SIU YÊU',
-                'slug'=>'mèo chân ngắn ',
+                'id'=>10,
+                'name'=>'MÈO CHÂN NGẮN TAI CỤP',
+                'slug'=>'meo-chan-ngan-tai-cup',
                 'quantity'=>'1',
                 'price'=>'2920000',
                 'category_id'=>'1',
@@ -125,8 +135,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>11,
                 'name'=>'SỮA BIO MILK (SỮA BỘT GÓI) ',
-                'slug'=>'100 gram',
+                'slug'=>'sua-bio-milk',
                 'quantity'=>'1',
                 'price'=>'3400000',
                 'category_id'=>'3',
@@ -136,8 +147,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>12,
                 'name'=>'SỮA PRECATEN CHO MÈO',
-                'slug'=>'400 gram ',
+                'slug'=>'sua-precaten',
                 'quantity'=>'1',
                 'price'=>'175000',
                 'category_id'=>'3','description'=>'Cung cấp dinh dưỡng bổ sung mèo khi còn nhỏ ',
@@ -146,8 +158,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>13,
                 'name'=>'ZESTY PAWS WILD ALASKAN SANL',
-                'slug'=>'450 gram ',
+                'slug'=>'zesty',
                 'quantity'=>'1',
                 'price'=>'192000',
                 'category_id'=>'3',
@@ -157,8 +170,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>14,
                 'name'=>'XƯƠNG CUỐN THỊT GÀ',
-                'slug'=>'100 gram ',
+                'slug'=>'xuong-cuon-thit-ga',
                 'quantity'=>'1',
                 'price'=>'300000',
                 'category_id'=>'3',
@@ -168,8 +182,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>15,
                 'name'=>'SÚP THƯỞNG CIAO',
-                'slug'=>'1 hủ 50 gói ',
+                'slug'=>'sup-thuong',
                 'quantity'=>'1',
                 'price'=>'230000',
                 'category_id'=>'3',
@@ -179,8 +194,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>16,
                 'name'=>'SIRO TRỊ CHẢY NƯỚC MẮT',
-                'slug'=>'thực phẩm chức năng ',
+                'slug'=>'siro-tri-chay-nuoc-mat',
                 'quantity'=>'1',
                 'price'=>'230000',
                 'category_id'=>'4',
@@ -190,8 +206,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>17,
                 'name'=>'LƯỢC GỠ RỐI THÚ CƯNG',
-                'slug'=>'phụ kiện ',
+                'slug'=>'luoc',
                 'quantity'=>'1',
                 'price'=>'120000',
                 'category_id'=>'4',
@@ -201,8 +218,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>18,
                 'name'=>'GIƯỜNG KUTE CHO BOSS',
-                'slug'=>'Nhiều màu sắc ',
+                'slug'=>'giuong-kute',
                 'quantity'=>'1','price'=>'150000',
                 'category_id'=>'4',
                 'description'=>'Giúp vật nuôi giấc ngủ say',
@@ -211,8 +229,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>19,
                 'name'=>'BÁT CHỐNG ĂN NHANH',
-                'slug'=>'phiên bản nhiều màu ',
+                'slug'=>'bat-chong-an-nhanh',
                 'quantity'=>'1',
                 'price'=>'195000',
                 'category_id'=>'4',
@@ -222,8 +241,9 @@ class ProductSeeder extends Seeder
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
             [
+                'id'=>20,
                 'name'=>'XỊT VỆ SINH ĐÚNG CHỖ',
-                'slug'=>'1 chai 100 gram ',
+                'slug'=>'xit-ve-sinh',
                 'quantity'=>'1',
                 'price'=>'200000',
                 'category_id'=>'4',

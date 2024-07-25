@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
 
 class AdminController extends Controller
 {
@@ -14,13 +16,18 @@ class AdminController extends Controller
 
     }
     public function productsAdm(){
-        return view('layout.admin.products');
-    }
-    public function dashboard(){
+
+      // Lấy tất cả các sản phẩm từ CSDL
+     
+      $products = Product::all();
+      return view('layout.admin.products', compact('products'));
+    }     public function dashboard(){
         return view('layout.admin.dashboard');
     }
     public function category(){
-        return view('layout.admin.category');
+
+        $categories = Category::all();
+        return view('layout.admin.category', compact('categories'));
     }
     public function account(){
         return view('layout.admin.account');

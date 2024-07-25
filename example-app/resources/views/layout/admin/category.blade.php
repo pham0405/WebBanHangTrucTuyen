@@ -17,7 +17,7 @@
                     <tr>
                         <th>#</th>
                         <th>Thương Hiệu</th>
-                        <th>Tình Trạng</th>
+                        <th>Mô tả</th>
                         <th>Chỉnh Sửa</th>
                     </tr>
                 </thead>
@@ -25,10 +25,22 @@
                     <tr>
                         <th>#</th>
                         <th>Thương Hiệu</th>
-                        <th>Tình Trạng</th>
+                        <th>Mô tả</th>
                         <th>Chỉnh Sửa</th>
                     </tr>
                 </tfoot>
+                @foreach ($categories as $Category)
+                <tr>
+                    <td>{{ $Category->id }}</td>
+                    <td>{{ $Category->name }}</td>
+                    <td>{{ $Category->quantity }}</td>
+                    <td style="text-align: center;"><a href="#" class="nav-link"><i
+                        class="fa-solid fa-pen-to-square"></i></a></td>
+                </tr>
+
+
+                @endforeach
+
                
             </table>
         </div>

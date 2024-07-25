@@ -1,6 +1,6 @@
 @extends('layout.master')
 @section('contents')
-
+@title('Trang Chủ')
 <div>
     <div>
         <section id="banner" style="background: #F9F3EC;">

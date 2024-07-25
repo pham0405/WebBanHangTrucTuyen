@@ -16,4 +16,7 @@ class Product extends Model
     ];
 
    public function category(){}
+   public function product(){
+   }
 }
+

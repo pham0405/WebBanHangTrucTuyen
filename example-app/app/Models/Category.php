@@ -7,10 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
+    protected $table = product_categories;
     protected $fillable = [
-        'name', 
-        'parent_id',
-        'status'
+        'id',
+        'name',
+        'slug',
+        'description',
+        'created_at',
+        'update_at'
+
     ];
     public function products(): HasMany
     {

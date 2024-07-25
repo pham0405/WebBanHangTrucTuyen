@@ -29,6 +29,11 @@
                         <th>Chỉnh Sửa</th>
                     </tr>
                 </tfoot>
+                @foreach ()
+
+
+                @endforeach
+
                
             </table>
         </div>

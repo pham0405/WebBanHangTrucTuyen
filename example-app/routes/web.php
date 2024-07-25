@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\client\HomepageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,7 +12,7 @@ Route::prefix('/')->group(function () {
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
-    Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
+    Route::post('/dathang', [OrderController::class, 'Order'])->name('order');
 });
 
 // Admin routes

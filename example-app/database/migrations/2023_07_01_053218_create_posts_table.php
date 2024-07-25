@@ -16,14 +16,17 @@ return new class extends Migration
             $table->string('title',255)->unique()->limit(50);
             $table->string('slug',255)->unique()->limit(50);
             $table->text('content')->nullable()->limit(100);
+
             $table->unsignedBigInteger('author_id');
             $table->foreign('author_id')
                   ->references('id')
                   ->on('users')
                   ->onDelete('cascade');
+
             $table->date('date')->nullable();
             $table->string('image',255)->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
+            
             $table->foreign('category_id')
                     ->references('id')
                     ->on('categories')

@@ -244,7 +244,7 @@
                             <a href="{{ route('contact') }}" class="nav-link">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('orther') }}" class="nav-link">Others</a>
+                            <a href="{{ route('order') }}" class="nav-link">Order</a>
                         </li>
 
 

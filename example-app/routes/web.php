@@ -28,3 +28,4 @@ Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/addProd',[AdminController::class , 'addProd'])->name('addProd');
 Route::get('/addCate',[AdminController::class , 'addCate'])->name('addCate');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
+

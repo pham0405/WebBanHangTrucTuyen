@@ -171,12 +171,12 @@
             <div
                 class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
                 <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Phone</span>
-                    <h5 class="mb-0">+980-34984089</h5>
+                    <a href="" class="fs-6 secondary-font text-muted">Đăng Ký</a>
+                    
                 </div>
                 <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Email</span>
-                    <h5 class="mb-0">waggy@gmail.com</h5>
+                    <a href="" class="fs-6 secondary-font text-muted">Đăng Nhập</a>
+                    
                 </div>
 
 

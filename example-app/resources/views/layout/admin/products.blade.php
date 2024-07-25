@@ -15,36 +15,46 @@
                         <tr>
                             <th>#</th>
                             <th>Sản Phẩm</th>
-                            <th>Tình Trạng</th>
                             <th>Ảnh</th>
                             <th>Giá</th>
-                            <th>Khuyến Mãi</th>
-                            <th>Thương Hiệu</th>
+                            <th>Số lượng</th>
+                            <th>Mô tả</th>
                             <th>Lượt xem</th>
                             <th>Chỉnh Sửa</th>
                             <th>Xóa</th>
                         </tr>
                     </thead>
+
                     <tfoot>
                         <tr>
                             <th>#</th>
                             <th>Sản Phẩm</th>
-                            <th>Tình Trạng</th>
                             <th>Ảnh</th>
                             <th>Giá</th>
-                            <th>Khuyến Mãi</th>
-                            <th>Thương Hiệu</th>
+                            <th>Số lượng</th>
+                            <th>Mô tả</th>
                             <th>Lượt xem</th>
                             <th>Chỉnh Sửa</th>
                             <th>Xóa</th>
                         </tr>
                     </tfoot>
                     <tbody>
+                        @foreach ($products as $product)
+                            <tr>
+                                <td>{{ $product->id }}</td>
+                                <td>{{ $product->name }}</td>
+                                <td>{{ $product->image }}</td>
+                                <td>{{ $product->price }}</td>
+                                <td>{{ $product->quantity }}</td>
+                                <td>{{ $product->description }}</td>
+                                <td>{{ $product->view }}</td>
 
-                        <td style="text-align: center;"><a href="#" class="nav-link"><i
-                                    class="fa-solid fa-pen-to-square"></i></a></td>
-                        <td onclick=" return confirm('Bạn có chắc rằng muốn xóa ?');" style="text-align: center;"><a
-                                href="#" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>
+                                <td style="text-align: center;"><a href="#" class="nav-link"><i
+                                            class="fa-solid fa-pen-to-square"></i></a></td>
+                                <td onclick=" return confirm('Bạn có chắc rằng muốn xóa ?');" style="text-align: center;"><a
+                                        href="#" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

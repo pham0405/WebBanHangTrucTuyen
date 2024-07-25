@@ -26,8 +26,8 @@ class AdminController extends Controller
     }
     public function category(){
 
-        $category = Category::all();
-        return view('layout.admin.category', compact('category'));
+        $categories = Category::all();
+        return view('layout.admin.category', compact('categories'));
     }
     public function account(){
         return view('layout.admin.account');

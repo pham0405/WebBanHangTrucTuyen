@@ -14,18 +14,18 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         DB::table('products')->insert([
-            [
+            [   'id' => '1',
                 'name'=>'ALASKA NÂU ĐỎ XINH ',
                 'slug'=>'alaska-nau-do',
                 'quantity'=>'1',
                 'price'=>'420000',
-                'category_id'=>'2',
+                'category_id'=>'1',
                 'description'=>'Chó Alaska nhập khẩu',
                 'view'=>'1',
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2024/07/photo_2024-07-10_18-14-08.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '2',
                 'name'=>'POODLE VÀNG MƠ',
                 'slug'=>'poodle vàng',
                 'quantity'=>'1',
@@ -36,40 +36,40 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2024/07/photo_2024-07-10_20-33-30-2.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '3',
                 'name'=>'POODLE KEM MƠ',
                 'slug'=>'poodle màu kem mơ',
                 'quantity'=>'1',
                 'price'=>'920000',
-                'category_id'=>'2',
+                'category_id'=>'3',
                 'description'=>'Nhập khẩu từ Úc',
                 'view'=>'726',
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2024/07/photo_2024-07-13_14-50-06.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '4',
                 'name'=>'HUSKY XÁM',
                 'slug'=>'Chó Husky Siberian',
                 'quantity'=>'1',
                 'price'=>'420000',
-                'category_id'=>'2',
+                'category_id'=>'4',
                 'description'=>'Nhập Khẩu từ nước ngoài',
                 'view'=>'116',
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2024/07/photo_2024-07-12_15-25-08-2.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '5',
                 'name'=>'EM PUG BÉO Ú NU',
                 'slug'=>'Chó Pug',
                 'quantity'=>'1',
                 'price'=>'710000',
-                'category_id'=>'2',
+                'category_id'=>'5',
                 'description'=>'Có nguồn gốc từ Đức',
                 'view'=>'926',
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2019/12/60634147_1302412309906850_288819598420082688_n.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '6',
                 'name'=>'MÈO TAI CỤP',
                 'slug'=>'mèo xinh',
                 'quantity'=>'1',
@@ -80,7 +80,8 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2020/06/105610015_1675245249290219_60632172541139721_o.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [   'name'=>'MÈO GOLDEN TAI CỤP ĐỰC YÊU',
+            [   'id'=> '7',
+                  'name'=>'MÈO GOLDEN TAI CỤP ĐỰC YÊU',
                 'slug'=>'mèo golden',
                 'quantity'=>'1',
                 'price'=>'1900000',
@@ -91,7 +92,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/03/b0220a826132bb6ce223.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '8',
                 'name'=>'MÈO CHÂN NGẮN TAI CỤP SIU YÊU',
                 'slug'=>'mèo chân ngắn ',
                 'quantity'=>'1',
@@ -102,7 +103,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/05/photo_2023-05-30_16-15-09.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '9',
                 'name'=>'EM MÈO XÁM TAI CỤP CƯNG CƯNG ',
                 'slug'=>'mèo xám',
                 'quantity'=>'1',
@@ -113,7 +114,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/03/e3940fa767c9bb97e2d8-e1680160884611.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '9',
                 'name'=>'MÈO CHÂN NGẮN TAI CỤP SIU YÊU',
                 'slug'=>'mèo chân ngắn ',
                 'quantity'=>'1',
@@ -124,7 +125,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/05/photo_2023-05-30_16-15-09.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '10',
                 'name'=>'SỮA BIO MILK (SỮA BỘT GÓI) ',
                 'slug'=>'100 gram',
                 'quantity'=>'1',
@@ -135,7 +136,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2021/03/kiotviet_203cfaa6116235ce080d0b4d1c6ae078.jpeg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '11',
                 'name'=>'SỮA PRECATEN CHO MÈO',
                 'slug'=>'400 gram ',
                 'quantity'=>'1',
@@ -145,7 +146,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/1b69909a1fd6da8883c7.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '12',
                 'name'=>'ZESTY PAWS WILD ALASKAN SANL',
                 'slug'=>'450 gram ',
                 'quantity'=>'1',
@@ -156,7 +157,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2023/02/93a64c1025feffa0a6ef-e1677125403893.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
+            [   'id'=> '13',
                 'name'=>'XƯƠNG CUỐN THỊT GÀ',
                 'slug'=>'100 gram ',
                 'quantity'=>'1',
@@ -167,71 +168,7 @@ class ProductSeeder extends Seeder
                 'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/0a9bfbca835841061849.jpg',
                 'created_at'=>Now(),'updated_at'=>Now()
             ],
-            [
-                'name'=>'SÚP THƯỞNG CIAO',
-                'slug'=>'1 hủ 50 gói ',
-                'quantity'=>'1',
-                'price'=>'230000',
-                'category_id'=>'3',
-                'description'=>'Giúp tăng sức ăn cho chó và mèo',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/8d0d0092931b5145080a.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ],
-            [
-                'name'=>'SIRO TRỊ CHẢY NƯỚC MẮT',
-                'slug'=>'thực phẩm chức năng ',
-                'quantity'=>'1',
-                'price'=>'230000',
-                'category_id'=>'4',
-                'description'=>'Giúp thú cưng không chảy nước mắt hiệu quả cao',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/c09e39d6aa5f6801314e.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ],
-            [
-                'name'=>'LƯỢC GỠ RỐI THÚ CƯNG',
-                'slug'=>'phụ kiện ',
-                'quantity'=>'1',
-                'price'=>'120000',
-                'category_id'=>'4',
-                'description'=>'vệ sinh lông thú cưng',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/6830314265b5a0ebf9a4.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ],
-            [
-                'name'=>'GIƯỜNG KUTE CHO BOSS',
-                'slug'=>'Nhiều màu sắc ',
-                'quantity'=>'1','price'=>'150000',
-                'category_id'=>'4',
-                'description'=>'Giúp vật nuôi giấc ngủ say',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2023/02/172f59bc7e88a4d6fd99-e1676696314661.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ],
-            [
-                'name'=>'BÁT CHỐNG ĂN NHANH',
-                'slug'=>'phiên bản nhiều màu ',
-                'quantity'=>'1',
-                'price'=>'195000',
-                'category_id'=>'4',
-                'description'=>'Giúp chó và tăng sức ăn nhanh',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2022/08/5c55ae1c3d95ffcba684.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ],
-            [
-                'name'=>'XỊT VỆ SINH ĐÚNG CHỖ',
-                'slug'=>'1 chai 100 gram ',
-                'quantity'=>'1',
-                'price'=>'200000',
-                'category_id'=>'4',
-                'description'=>'Khử mùi và làm sạch ',
-                'view'=>'816',
-                'image'=>'https://matpetfamily.com/wp-content/uploads/2021/05/kiotviet_0940466be9c1ca03485eaaaf66e3506b.jpg',
-                'created_at'=>Now(),'updated_at'=>Now()
-            ]
+            
         ]);
     }
 }

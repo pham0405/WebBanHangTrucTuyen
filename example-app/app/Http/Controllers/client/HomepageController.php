@@ -18,7 +18,6 @@ class HomepageController extends Controller
 
     public function products(){
         
-
         return view('layout.client.products');
     }
 

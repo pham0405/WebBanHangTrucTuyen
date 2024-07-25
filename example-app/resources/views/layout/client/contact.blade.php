@@ -1,5 +1,7 @@
 @extends('layout.master')
 @section('contents')
-
-<h1>Liên Hệ</h1>
+@title('Liên Hệ')
+<div>
+    
+</div>
 @endsection

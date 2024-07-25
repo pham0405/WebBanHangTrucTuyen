@@ -1,5 +1,8 @@
 @extends('layout.master')
 @section('contents')
-
-<h1>Bài viết</h1>
+@title('Bài viết')
+<div>
+    <h1>Danh sách bài viết </h1>
+    
+</div>
 @endsection

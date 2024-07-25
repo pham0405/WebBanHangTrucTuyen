@@ -3,16 +3,22 @@
 namespace App\Http\Controllers\client;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
     //
+
     public function index(){
         return view('layout.client.homepage');
+        
     }
 
+
     public function products(){
+        
+
         return view('layout.client.products');
     }
 

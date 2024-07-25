@@ -8,11 +8,13 @@
           <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
             <h2 class="display-3 fw-normal">Pet Clothing</h2>
             <div>
-              <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                shop now
-                <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                  <use xlink:href="#arrow-right"></use>
-                </svg></a>
+              <select class="filter-categories border-0 mb-0 me-5">
+                <option>Shop by Category</option>
+                <option>Clothes</option>
+                <option>Food</option>
+                <option>Food</option>
+                <option>Toy</option>
+            </select>
             </div>
           </div>
     

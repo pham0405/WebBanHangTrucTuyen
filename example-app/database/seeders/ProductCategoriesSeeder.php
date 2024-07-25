@@ -15,9 +15,10 @@ class ProductCategoriesSeeder extends Seeder
     public function run(): void
     {
         DB::table('product_categories')->insert([
-            ['name'=>'Chó Poodle','slug'=>'poodle','description'=>'Chó đẹp','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Chó Pug','slug'=>'pug','description'=>'Chó đẹp','created_at'=>Now(),'updated_at'=>Now()],
-            ['name'=>'Mèo Anh Lông Ngắn','long-ngan'=>'tui-xach','description'=>'Mèo đẹp','created_at'=>Now(),'updated_at'=>Now()],
+            ['name'=>'Chó Các Loại','slug'=>'cho','description'=>'Bao gồm tất cả các giống chó như: poodle, pug, alaska, huski,...','created_at'=>Now(),'updated_at'=>Now()],
+            ['name'=>'Mèo Các Loại','slug'=>'meo','description'=>'Bao gồm tất cả các giống mèo như: anh lông ngắn, dài, bicolor,...','created_at'=>Now(),'updated_at'=>Now()],
+            ['name'=>'Thức Ăn Thú Cưng','slug'=>'thuc-an','description'=>'Bao gồm tất cả các loại thức ăn cho chó mèo,...','created_at'=>Now(),'updated_at'=>Now()],
+            ['name'=>'Phụ Kiện Thú Cưng','slug'=>'phu-kien','description'=>'Bao gồm tất cả các loại phụ kiện như: cát mèo, trang phục chó mèo,...','created_at'=>Now(),'updated_at'=>Now()],
         ]);
     }
 }

@@ -23,7 +23,8 @@ class PostSeeder extends Seeder
                 'image'=>'https://pethouse.com.vn/wp-content/uploads/2024/07/z5594202021755_e41b7c7b4010dfc97b4342d1cbc8bf5b-2-2048x1365.jpg',
                 'category_id'=>'1',
                 'created_at'=>Now(),'updated_at'=>Now()],
-            [   'id' => '2',
+                
+            [   'id' => '2', 
                 'title'=>'CÁC BỆNH NGUY HIỂM MÀ CÁC BÉ MÈO THƯỜNG GẶP PHẢI',
                 'slug'=>'cac-benh-nguy-hiem-ma-cac-be-meo-thuong-gap',
                 'content'=>'Trong cuộc sống xung quanh chúng ta tiềm ẩn những loại virut gây hại với những chú mèo, những virut này làm cho các bé mèo lanh lợi, hoạt bát, khỏe khoắn của chúng ta trở nên đau đớn, yếu ớt và có thể dẫn đến tử vong. Vậy làm cách nào để có thể ngăn được những loại virut nguy hiểm này? Qua bài viết này, mọi người hãy cùng Pethouse tìm hiểu từng loại virut gây bệnh cho mèo, nguyên nhân, biện pháp phòng tránh các loại virut này nhé!',

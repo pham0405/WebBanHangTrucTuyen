@@ -16,6 +16,7 @@ return new class extends Migration
             $table->date('date');
             $table->text('address');
             $table->decimal('total', 10, 2);
+            $table -> double('quantity');
             // $table->unsignedBigInteger('payment_method');
             $table->unsignedBigInteger('order_id');
             $table->string('status')->nullable();

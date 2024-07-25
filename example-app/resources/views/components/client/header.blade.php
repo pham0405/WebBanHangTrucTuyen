@@ -1,14 +1,4 @@
-
-
-
-
-
-
-
-
-  
-
- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
             <path fill="currentColor"
@@ -171,14 +161,12 @@
             <div
                 class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
                 <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Phone</span>
-                    <h5 class="mb-0">+980-34984089</h5>
+                    <a href="{{route('login')}}">Đăng Nhập</a>
                 </div>
                 <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Email</span>
-                    <h5 class="mb-0">waggy@gmail.com</h5>
+                    <a href="{{route('register')}}">Đăng Ký</a>
                 </div>
-
+            </div>
 
 
             </div>
@@ -253,7 +241,7 @@
                             <a href="{{ route('homepage') }}" class="nav-link active">Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('product') }}" class="nav-link">Sản Phẩm</a>
+                            <a href="{{ route('product') }}" class="nav-link">sản phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('blog') }}" class="nav-link">Bài Viết</a>

@@ -194,11 +194,11 @@ d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0a1 1 0 0 0
                 <div
                     class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
                     <div class="support-box text-end d-none d-xl-block">
-                        <span class="fs-6 secondary-font text-muted">Phone</span>
+                        <span class="fs-6 secondary-font text-muted">Đăng ký</span>
                         <h5 class="mb-0">+980-34984089</h5>
                     </div>
                     <div class="support-box text-end d-none d-xl-block">
-                        <span class="fs-6 secondary-font text-muted">Email</span>
+                        <span class="fs-6 secondary-font text-muted">đăng nhập</span>
                         <h5 class="mb-0">waggy@gmail.com</h5>
                     </div>
 

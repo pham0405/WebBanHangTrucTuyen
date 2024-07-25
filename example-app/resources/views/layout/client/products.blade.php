@@ -2,6 +2,14 @@
 @section('contents')
 @title('Sản Phẩm')
 <div>
+  <div class="container">
+    <h1>Danh sách sản phẩm</h1>
+</div>
+<style>
+    .container h1 {
+        text-align: center;
+    }
+</style>
     <section id="clothing" class="my-5 overflow-hidden">
         <div class="container pb-5">
     

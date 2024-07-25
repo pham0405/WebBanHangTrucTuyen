@@ -35,6 +35,22 @@ return new class extends Migration
             $table->longText('payload');
             $table->integer('last_activity')->index();
         });
+        
+
+// ...
+
+Schema::create('users', function (Blueprint $table) {
+    // ...
+    $table->string('password');
+});
+
+// Trong phương thức up của migration
+DB::table('users')->insert([
+    'name' => 'John Doe',
+    'email' => 'johndoe@example.com',
+    'password' => Hash::make('password'),
+]);
+
     }
 
     /**

@@ -5,6 +5,7 @@ use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CartController;
 
 // Client routes
 Route::prefix('/')->group(function () {
@@ -12,7 +13,13 @@ Route::prefix('/')->group(function () {
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
-    Route::post('/dathang', [OrderController::class, 'Order'])->name('order');
+    Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
+
+
+    Route::get('/cart', [CartController::class, 'showCart'])->name('cartShow');
+    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cartadd');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cartremove');
+
 });
 
 // Admin routes
@@ -42,4 +49,4 @@ Route::middleware('auth')->group(function () {
 });
 
 // Authentication routes
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

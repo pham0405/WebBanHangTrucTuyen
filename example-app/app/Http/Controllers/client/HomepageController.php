@@ -5,6 +5,7 @@ namespace App\Http\Controllers\client;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -30,13 +31,12 @@ class HomepageController extends Controller
         return view('layout.client.contact');
     }
 
-    public function order(){ 
-
-    $orders = Order::all(); 
-    
-
-
-        return view('layout.client.order');
+    public function gioithieu() {
+        return view('layout.client.gioithieu');
+    }
+    public function cart() {
+        
+        return view('layout.client.cart');
     }
 
 }

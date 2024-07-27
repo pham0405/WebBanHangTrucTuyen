@@ -106,7 +106,7 @@
                 </li>
             </ul>
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+            <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="{{route('cartShow')}}">Continue to checkout</a></button>
         </div>
     </div>
 </div>
@@ -244,7 +244,7 @@
                             <a href="{{ route('contact') }}" class="nav-link">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('order') }}" class="nav-link">Order</a>
+                            <a href="{{ route('gioithieu') }}" class="nav-link">Giới thiệu</a>
                         </li>
 
 

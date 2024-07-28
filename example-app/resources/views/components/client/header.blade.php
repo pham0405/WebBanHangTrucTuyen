@@ -168,18 +168,19 @@
                 </div>
             </div>
 
-            <div
-                class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-                <div class="support-box text-end d-none d-xl-block">
-                    <a href="" class="fs-6 secondary-font text-muted">Đăng Ký</a>
-                    
-                </div>
-                <div class="support-box text-end d-none d-xl-block">
-                    <a href="{{route('login')}}" class="fs-6 secondary-font text-muted">Đăng Nhập</a>
-                    
-                </div>
+            <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+                @if(Auth::check())
+                <span>Welcome, {{ Auth::user()->name }}</span>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="">Log Out</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="">Đăng nhập</a>
+                <a href="{{ route('register') }}" class="">Đăng ký</a>
+            @endif
 
-
+                
 
             </div>
         </div>
@@ -195,7 +196,7 @@
             <div class="d-flex d-lg-none align-items-end mt-3">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        <a href="account.html" class="mx-3">
+                        <a href="{{route('profile.edit')}}" class="mx-3">
                             <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                         </a>
                     </li>
@@ -265,7 +266,7 @@
                     <div class="d-none d-lg-flex align-items-end">
                         <ul class="d-flex justify-content-end list-unstyled m-0">
                             <li>
-                                <a href="account.html" class="mx-3">
+                                <a href="{{route('profile.edit')}}" class="mx-3">
                                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                                 </a>
                             </li>

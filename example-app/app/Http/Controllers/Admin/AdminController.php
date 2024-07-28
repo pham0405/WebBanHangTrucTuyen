@@ -15,13 +15,8 @@ class AdminController extends Controller
         return view('layout.admin.dashboard');
 
     }
-    public function productsAdm(){
-
-      // Lấy tất cả các sản phẩm từ CSDL
-     
-      $products = Product::all();
-      return view('layout.admin.products', compact('products'));
-    }     public function dashboard(){
+       
+    public function dashboard(){
         return view('layout.admin.dashboard');
     }
     public function category(){
@@ -32,7 +27,7 @@ class AdminController extends Controller
     public function account(){
         return view('layout.admin.account');
     }
-    public function comment(){
+    public function comment(Request $request){
         return view('layout.admin.comment');
     }
     public function orders(){

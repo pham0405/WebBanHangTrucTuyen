@@ -20,24 +20,29 @@
         <input type="file" class="form-control" name="imageProd">
     </div>
     <div class="form-floating mb-3 mt-3">
+        <label>Số lượng</label>
+        <input type="text" class="form-control" name="quantity">
+    </div>
+    <div class="form-floating mb-3 mt-3">
+        <label>Mô tả</label>
+        <input type="text" class="form-control" placeholder="Nhập mô tả sản phẩm" name="description" required>
+    </div>
+    <div class="form-floating mb-3 mt-3">
         <label>Giá sản phẩm</label>
         <input type="text" class="form-control" placeholder="Giá sản phẩm" name="catePrice" required>
     </div>
-    <div class="form-floating mb-3 mt-3">
+    {{-- <div class="form-floating mb-3 mt-3">
         <label>Tình Trạng</label>
         <select class="form-control" name="status">
             <option value="Còn kinh doanh">Còn kinh doanh</option>
             <option value="Ngừng kinh doanh">Ngừng kinh doanh</option>
         </select>
-    </div>
-    <label>Khuyến mãi: </label>
-    <select name="promoId" class="form-floating mb-3 mt-3">
-        
-    </select>
-    <div class="form-floating mb-3 mt-3">
+    </div> --}}
+   
+    {{-- <div class="form-floating mb-3 mt-3">
         <label>Ảnh mô tả sản phẩm</label>
         <input type="file" class="form-control" name="imageProds[]" multiple>
-    </div>
+    </div> --}}
    
 
     <button tyle="submit" name="addCate" class="btn btn-primary">Thêm</button>

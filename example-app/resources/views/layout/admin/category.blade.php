@@ -33,7 +33,7 @@
                 <tr>
                     <td>{{ $Category->id }}</td>
                     <td>{{ $Category->name }}</td>
-                    <td>{{ $Category->quantity }}</td>
+                    <td>{{ $Category->description }}</td>
                     <td style="text-align: center;"><a href="#" class="nav-link"><i
                         class="fa-solid fa-pen-to-square"></i></a></td>
                 </tr>

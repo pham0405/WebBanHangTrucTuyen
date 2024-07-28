@@ -6,20 +6,20 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class CartSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        DB::table('carts')->insert([
+        DB::table('users')->insert([
             [
-                'product_id'=>'1',
-                'user_id'=>'1',
-                'total'=>'700000',
-                'quantity'=>'4',
-                'created_at'=>Now(),'updated_at'=>Now()
+                'id'=>1,
+                'name'=>'Lâm Minh Nhật',
+                'email'=>'lamnhat509@gmail.com',
+                'email_verified_at'=>Now(),
+                'password'=>'1234',
             ],
         ]);
     }

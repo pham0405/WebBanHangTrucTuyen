@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
@@ -42,3 +43,8 @@ Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/addProd',[AdminController::class , 'addProd'])->name('addProd');
 Route::get('/addCate',[AdminController::class , 'addCate'])->name('addCate');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
+
+Route::resource('products', ProductController::class);
+Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+

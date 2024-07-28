@@ -20,7 +20,7 @@ class AdminController extends Controller
       // Lấy tất cả các sản phẩm từ CSDL
      
       $products = Product::all();
-      return view('layout.admin.products', compact('products'));
+      return view('products.index', compact('products'));
     }     public function dashboard(){
         return view('layout.admin.dashboard');
     }

@@ -38,3 +38,11 @@ Route::middleware('auth')->group(function () {
 
 // Authentication routes
 require __DIR__.'/auth.php';
+
+// client
+
+
+Route::resource('products', ProductController::class);
+Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+

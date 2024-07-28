@@ -64,6 +64,8 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa thành công.');
+        return redirect()->route('productsAdm')->with('success', 'Sản phẩm đã được xóa thành công.');
     }
+    //thống kê sản phẩm
+    
 }

@@ -24,7 +24,6 @@ return new class extends Migration
             $table->date('date')->nullable();
             $table->string('image',255)->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
-            
             $table->foreign('category_id')
                     ->references('id')
                     ->on('categories')

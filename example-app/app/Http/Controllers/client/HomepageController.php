@@ -12,31 +12,46 @@ class HomepageController extends Controller
 {
     //
 
-    public function index(){
+    public function index()
+    {
         return view('layout.client.homepage');
-        
+
     }
 
 
-    public function products(){
-        
-        return view('layout.client.products');
+    public function products()
+    {
+        return view('layout.client.products ');
     }
 
-    public function blog(){
+    public function blog()
+    {
         return view('layout.client.blog');
     }
 
-    public function contact(){
+    public function contact(Request $request)
+    {
+        if ($request->isMethod('post')) {
+            // Xử lý dữ liệu form ở đây
+            $data = $request->all();
+            // Gửi email, lưu dữ liệu vào database, hoặc các hành động khác
+            dd($data); // Hiển thị dữ liệu form để kiểm tra
+        }
+    
         return view('layout.client.contact');
     }
 
-    public function gioithieu() {
+
+    public function gioithieu()
+    {
         return view('layout.client.gioithieu');
     }
-    public function cart() {
-        
+    public function cart()
+    {
+
         return view('layout.client.cart');
     }
+
+
 
 }

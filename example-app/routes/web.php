@@ -9,6 +9,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ContactController;
 
 // Client routes
+
+
 Route::prefix('/')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
@@ -32,8 +34,7 @@ Route::prefix('/')->group(function () {
 });
 
 // Admin routes
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin');
+Route::prefix('/admin')->group(function () {
     Route::get('/productsAdm', [AdminController::class, 'productsAdm'])->name('productsAdm');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/category', [AdminController::class, 'category'])->name('category');
@@ -45,11 +46,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/ordersDetail', [AdminController::class, 'ordersDetail'])->name('ordersDetail');
 });
 
-// Dashboard route with middleware
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 // Profile routes with middleware
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -58,4 +54,12 @@ Route::middleware('auth')->group(function () {
 });
 
 // Authentication routes
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
+
+// client
+
+
+Route::resource('products', ProductController::class);
+Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+

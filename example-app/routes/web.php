@@ -4,7 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\client\ProductController;
 // Client routes
 
 
@@ -43,6 +43,7 @@ require __DIR__.'/auth.php';
 
 
 Route::resource('products', ProductController::class);
+
 Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 

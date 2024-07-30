@@ -391,6 +391,7 @@ CSS STRUCTURE:
     opacity: 1;
     width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 15px));
     height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 15px));
+    
   }
   
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -401,6 +402,15 @@ CSS STRUCTURE:
   .swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet,
   .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
+  }
+  .swiper-pagination {
+    text-align: center;
+    font-size: 14px;
+    color: #000; /* Thay đổi màu sắc nếu cần */
+  }
+  
+  .swiper-button-next, .swiper-button-prev {
+    color: #000; /* Thay đổi màu sắc nếu cần */
   }
   
   

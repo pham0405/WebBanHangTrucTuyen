@@ -17,8 +17,8 @@ class HomepageController extends Controller
 
 
     public function products(){
-        
-        return view('layout.client.products');
+        $products = Product::All();
+        return view('layout.client.products',compact('products'));
     }
 
     public function blog(){

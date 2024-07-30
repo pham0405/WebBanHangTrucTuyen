@@ -7,7 +7,14 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
 
-class productsAdm extends Controller
+class ProductsAdm extends Controller
 {
-   
+    public function productsAdm()
+    {
+
+        // Lấy tất cả các sản phẩm từ CSDL
+
+        $products = Product::all();
+        return view('layout.admin.products', compact('products'));
+    }
 }

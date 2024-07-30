@@ -6,7 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\Product\CategoryController;
-use App\Http\Controllers\Admin\dashboardController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\admin\ProductsAdm;
 
 
 
@@ -33,8 +34,8 @@ Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
 
 // admin
-Route::get('/admin',[AdminController::class , 'index'])->name('admin');
-Route::get('/productsAdm',[AdminController::class , 'productsAdm'])->name('productsAdm');
+// Route::get('/admin',[AdminController::class , 'index'])->name('admin');
+Route::get('/productsAdm',[ProductsAdm::class , 'productsAdm'])->name('productsAdm');
 
 Route::get('/category',[AdminController::class , 'category'])->name('category');
 Route::get('/account',[AdminController::class , 'account'])->name('account');
@@ -50,5 +51,4 @@ Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name(
 Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 Route::get('products/{product}', [ProductController::class, 'edit'])->name('products.edit');
 
-//dashbord
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/admin', [DashboardController::class, 'dashboard'])->name('dashboard');

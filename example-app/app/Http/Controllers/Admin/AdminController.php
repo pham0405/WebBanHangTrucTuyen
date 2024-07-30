@@ -9,22 +9,6 @@ use App\Models\Category;
 
 class AdminController extends Controller
 {
-    //
-
-    public function index()
-    {
-        return view('layout.admin.dashboard');
-
-    }
-    public function productsAdm()
-    {
-
-        // Lấy tất cả các sản phẩm từ CSDL
-
-        $products = Product::all();
-        return view('layout.admin.products', compact('products'));
-    }
-    
     public function category()
     {
 

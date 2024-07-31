@@ -72,43 +72,7 @@
     <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-        <div class="order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-circle pt-2">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Grey Hoodie</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Dog Food</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Soft Toy</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-bold">Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
-
-            {{-- <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="{{route('cartShow')}}">Continue to checkout</a></button> --}}
-        </div>
-    </div>
+    <x-cart-summary />
 </div>
 
 <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
@@ -199,8 +163,8 @@
                         <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                             aria-controls="offcanvasCart">
                             <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                            <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                                03
+                            <span class=" cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+                                0
                             </span>
                         </a>
                     </li>
@@ -269,9 +233,9 @@
                                 <a href="#" class="mx-3" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                                     <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                                    <span
-                                        class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                                        03
+                                    <span 
+                                        class="cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+                                        0
                                     </span>
                                 </a>
                             </li>
@@ -289,4 +253,22 @@
 
     </div>
 </header>
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+    function updateCartCount() {
+        fetch('/cart/count')
+            .then(response => response.json())
+            .then(data => {
+                document.querySelectorAll('.cart-count').forEach(el => el.textContent = data.count);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    updateCartCount();
+
+    // Có thể thiết lập để cập nhật định kỳ nếu cần thiết
+    // setInterval(updateCartCount, 60000); // cập nhật mỗi phút
+});
+
+</script>
 <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->

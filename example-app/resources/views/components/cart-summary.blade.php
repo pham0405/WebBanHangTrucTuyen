@@ -3,7 +3,7 @@
         <div class="order-md-last">
             <h4 class="d-flex justify-content-between align-items-center mb-3">
                 <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-circle pt-2">{{ $carts->count() }}</span>
+                <span class=" cart-count badge bg-primary rounded-circle pt-2"></span>
             </h4>
             <ul class="list-group mb-3">
                 @foreach($carts as $cart)

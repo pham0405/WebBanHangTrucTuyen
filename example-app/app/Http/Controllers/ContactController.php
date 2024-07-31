@@ -10,7 +10,7 @@ class ContactController extends Controller
 {
     public function showForm()
     {
-        return view('layout.client.contact');
+        return view('contact');
     }
 
     public function sendMail(Request $request)

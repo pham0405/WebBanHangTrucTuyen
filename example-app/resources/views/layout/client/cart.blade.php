@@ -1,51 +1,61 @@
-@extends('layouts.app')
+@extends('layout.master')
 
-@section('content')
-    <!DOCTYPE html>
-    <html>
+@section('contents')
+@title('Giỏ hàng')
 
-    <head>
-        <title>Giỏ hàng</title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    </head>
-
-    <body>
-        <div class="container mt-5">
-            <h1>Giỏ hàng của bạn</h1>
-
-            @if (isset($cartItems) && count($cartItems) > 0)
-                <ul class="list-group">
-                    @foreach ($cartItems as $item)
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            {{ $item->name }} - {{ $item->quantity }}
-                            <form action="{{ route('cartremove', $item->id) }}" method="POST" class="ml-3">
+<div class="container md-9">
+    <div class="row">
+        <h1>Giỏ hàng của bạn</h1>
+        
+        @if($carts->isEmpty())
+            <p>Giỏ hàng của bạn đang trống.</p>
+        @else
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Hình ảnh</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Số lượng</th>
+                        <th>Giá</th>
+                        <th>Tổng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($carts as $cart)
+                    <tr>
+                        <td><img src="{{ $cart->product->image }}" class="img-fluid" alt="{{ $cart->product->name }}" style="width: 100px;"></td>
+                        <td>{{ $cart->product->name }}</td>
+                        <td>
+                            <form action="{{ route('cart.update', $cart->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="quantity" value="{{ $cart->quantity - 1 }}">
+                                <button type="submit" class="btn btn-sm btn-secondary">-</button>
+                            </form>
+                            {{ $cart->quantity }}
+                            <form action="{{ route('cart.update', $cart->id) }}" method="POST" style="display: inline;">
+                                @csrf
+                                @method('PATCH')
+                                <input type="hidden" name="quantity" value="{{ $cart->quantity + 1 }}">
+                                <button type="submit" class="btn btn-sm btn-secondary">+</button>
+                            </form>
+                        </td>
+                        <td>${{ $cart->product->price }}</td>
+                        <td>${{ $cart->total }}</td>
+                        <td>
+                            <form action="{{ route('cart.remove', $cart->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
                             </form>
-                        </li>
+                        </td>
+                    </tr>
                     @endforeach
-                </ul>
-            @else
-                <p>Giỏ hàng của bạn đang trống.</p>
-            @endif
-
-            <form action="{{ route('cartadd') }}" method="POST" class="mt-4">
-                @csrf
-                <div class="form-group">
-                    <label for="name">Tên sản phẩm:</label>
-                    <input type="text" name="name" id="name" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="quantity">Số lượng:</label>
-                    <input type="number" name="quantity" id="quantity" class="form-control">
-                </div>
-                <button type="submit" class="btn btn-primary">Thêm vào giỏ hàng</button>
-            </form>
-        </div>
-    </body>
-
-    </html>
-
-
+                </tbody>
+            </table>
+            <a href="" class="btn btn-primary">Thanh toán</a>
+        @endif
+    </div>
+</div>
 @endsection

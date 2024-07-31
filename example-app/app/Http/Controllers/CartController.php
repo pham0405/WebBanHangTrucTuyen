@@ -1,38 +1,88 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Product;
 use App\Models\Cart;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
-    public function showCart()
+    public function addToCart(Request $request, $id)
     {
-        // Lấy tất cả các mục trong giỏ hàng
-        $cartItems = Cart::all();
-
-        // Truyền dữ liệu đến view
-        return view('layout.client.cart', ['cartItems' => $cartItems]);
+        $product = Product::find($id);
+        
+        if (!$product) {
+            return redirect()->back()->withErrors('Sản phẩm không tồn tại.');
+        }
+    
+        $user_id = Auth::id();
+    
+        $cart = Cart::where('user_id', $user_id)
+                    ->where('product_id', $id)
+                    ->first();
+    
+        $price = $product->price;
+        $total = $price; 
+    
+        if ($cart) {
+            $cart->increment('quantity');
+            $cart->total = $cart->quantity * $price;
+            $cart->save();
+        } else {
+            Cart::create([
+                'user_id' => $user_id,
+                'product_id' => $id,
+                'quantity' => 1,
+                'total' => $total
+            ]);
+        }
+    
+        return redirect()->route('cart.view');
     }
 
-    public function addToCart(Request $request)
+    public function viewCart()
     {
-        // Thêm mục vào giỏ hàng
-        $cartItem = new Cart;
-        $cartItem->name = $request->name;
-        $cartItem->quantity = $request->quantity;
-        $cartItem->save();
+        $user_id = Auth::id();
+        $carts = Cart::with('product')->where('user_id', $user_id)->get();
 
-        return redirect('/cart');
+        return view('layout.client.cart', compact('carts'));
+    }
+
+    public function getCartCount()
+    {
+        $user_id = Auth::id();
+        $count = Cart::where('user_id', $user_id)->sum('quantity');
+    
+        return response()->json(['count' => $count]);
     }
 
     public function removeFromCart($id)
     {
-        // Xóa mục khỏi giỏ hàng
-        $cartItem = Cart::find($id);
-        $cartItem->delete();
+        $cart = Cart::find($id);
 
-        return redirect('/cart');
+        if ($cart && $cart->user_id == Auth::id()) {
+            $cart->delete();
+        }
+
+        return redirect()->route('cart.view');
+    }
+
+    public function updateQuantity(Request $request, $id)
+    {
+        $cart = Cart::find($id);
+
+        if ($cart && $cart->user_id == Auth::id()) {
+            $quantity = $request->input('quantity');
+            if ($quantity > 0) {
+                $cart->quantity = $quantity;
+                $cart->total = $cart->quantity * $cart->product->price;
+                $cart->save();
+            } else {
+                $cart->delete();
+            }
+        }
+
+        return redirect()->route('cart.view');
     }
 }

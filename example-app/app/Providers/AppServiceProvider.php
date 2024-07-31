@@ -2,8 +2,13 @@
 
 namespace App\Providers;
 
+
+use App\View\Components\CartComposer;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+
+use Illuminate\Support\Facades\View;
+
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +30,7 @@ public function boot()
     Blade::directive('title', function ($title) {
         return "<?php view()->share('title', $title); ?>";
     });
+   
 }
 
 }

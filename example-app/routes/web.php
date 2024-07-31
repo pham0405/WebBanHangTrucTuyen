@@ -1,39 +1,33 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\client\HomepageController;
-use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CartController;
+use App\Http\Controllers\client\ProductController;
 use App\Http\Controllers\ContactController;
 
 // Client routes
+
+
 Route::prefix('/')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
-    Route::post('/lienhe', [ContactController::class, 'contact'])->name('contact');
-
-  
-
-
+    Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
+    // Route::get('/product/{id}', [HomepageController::class, 'showProduct'])-> name('products.detail');
+    // Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+    // Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+    // Route::get('/cart/items', [HomepageController::class, 'getCartItems'])->name('cart.items');
+    Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+    Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
-
-
-    Route::get('/cart', [CartController::class, 'showCart'])->name('cartShow');
-    Route::post('/cart/add', [CartController::class, 'addToCart'])->name('cartadd');
-    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cartremove');
-// gửi mail
-
-
-
 });
 
 // Admin routes
-Route::prefix('admin')->group(function () {
-    Route::get('/', [AdminController::class, 'index'])->name('admin');
+Route::prefix('/admin')->group(function () {
     Route::get('/productsAdm', [AdminController::class, 'productsAdm'])->name('productsAdm');
     Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
     Route::get('/category', [AdminController::class, 'category'])->name('category');
@@ -45,11 +39,6 @@ Route::prefix('admin')->group(function () {
     Route::get('/ordersDetail', [AdminController::class, 'ordersDetail'])->name('ordersDetail');
 });
 
-// Dashboard route with middleware
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 // Profile routes with middleware
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -58,4 +47,12 @@ Route::middleware('auth')->group(function () {
 });
 
 // Authentication routes
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';
+
+// client
+
+
+// Route::resource('products', ProductController::class);
+
+// Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+// Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');

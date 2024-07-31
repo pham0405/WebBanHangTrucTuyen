@@ -106,7 +106,7 @@
                 </li>
             </ul>
 
-            <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="{{route('cartShow')}}">Continue to checkout</a></button>
+            {{-- <button class="w-100 btn btn-primary btn-lg" type="submit"><a href="{{route('cartShow')}}">Continue to checkout</a></button> --}}
         </div>
     </div>
 </div>

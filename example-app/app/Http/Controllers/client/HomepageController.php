@@ -29,17 +29,13 @@ class HomepageController extends Controller
         return view('layout.client.blog');
     }
 
-    public function contact(Request $request)
-    {
-        if ($request->isMethod('post')) {
-            // Xử lý dữ liệu form ở đây
-            $data = $request->all();
-            // Gửi email, lưu dữ liệu vào database, hoặc các hành động khác
-            dd($data); // Hiển thị dữ liệu form để kiểm tra
-        }
+    public function contact()
     
+       {
+
         return view('layout.client.contact');
-    }
+       }
+    
 
 
     public function gioithieu()

@@ -5,15 +5,22 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Category;
+use App\Models\User;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function dashboard()
     {
-        $products = Product::all();
-        $totalProducts = $products->count();
-        $totalQuantity = $products->sum('quantity');
+        $productCount = Product::count();
+        $cateCount = Category::count();
+        $userCount = User::count();
+        $products = Product::orderBy('view', 'desc')->take(5)->get();
 
-        return view('layout.admin.dashboard', compact('totalProducts', 'totalQuantity'));
+        return view('layout.admin.dashboard', compact('productCount', 'cateCount', 'userCount', 'products'));
     }
+
+
+
+
 }

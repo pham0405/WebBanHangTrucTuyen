@@ -1,20 +1,26 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\user;
+use App\Models\User;
+
 class DashboardController extends Controller
 {
     public function dashboard()
     {
         $productCount = Product::count();
         $cateCount = Category::count();
-        $userCount = User::count();        // Truyền dữ liệu tới view
-        return view('layout.admin.dashboard', compact('productCount', 'cateCount', 'userCount'));
-        // Nếu muốn truyền thêm dữ liệu tới view, bạn có thể truyền vào đây
+        $userCount = User::count();
+        $products = Product::orderBy('view', 'desc')->take(5)->get();
+
+        return view('layout.admin.dashboard', compact('productCount', 'cateCount', 'userCount', 'products'));
     }
+
+
+
 
 }

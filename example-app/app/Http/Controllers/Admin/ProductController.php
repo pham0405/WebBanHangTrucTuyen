@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Admin;
+use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -16,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('products.index', compact('products'));
+        return view('layout.admin.products.index', compact('products'));
     }
 
 
@@ -35,7 +35,7 @@ class ProductController extends Controller
             'description' => 'nullable',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:product_categories,id',
             'image' => 'nullable|url',
         ]);
 
@@ -68,7 +68,7 @@ class ProductController extends Controller
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        return view('products.edit', compact('product', 'categories'));
+        return view('layout.admin.products.edit', compact('product', 'categories'));
     }
 
     public function update(Request $request, $id)
@@ -78,7 +78,7 @@ class ProductController extends Controller
             'description' => 'nullable',
             'price' => 'required|numeric',
             'quantity' => 'required|integer',
-            'category_id' => 'required|exists:categories,id',
+            'category_id' => 'required|exists:product_categories,id',
             'image' => 'nullable|url',
         ]);
 
@@ -103,7 +103,7 @@ class ProductController extends Controller
         $product = Product::findOrFail($id);
         $product->delete();
 
-        return redirect()->route('productsAdm')->with('success', 'Sản phẩm đã được xóa thành công.');
+        return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa thành công.');
     }
     //thống kê sản phẩm
     

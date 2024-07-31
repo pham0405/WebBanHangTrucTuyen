@@ -18,17 +18,21 @@
 
     <!-- Custom styles for this template-->
     <link href="{{asset('assets/admin/css/sb-admin-2.min.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/admin/css/chart.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this dataTables -->
     <link href="{{asset('assets/admin/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 
     <!-- Fort awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <style>
+        
+      </style>
+      
 </head>
 
 <body id="page-top">
-
+   
     <!-- Page Wrapper -->
     <div id="wrapper">
 
@@ -39,8 +43,9 @@
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column">
           <x-admin.header></x-admin.header>
+          <div class="content"  style="padding: 2%">
           @yield('contentsAdm')
-   
+        </div>
             <!-- Footer -->
            <x-admin.footer></x-admin.footer>
             <!-- End of Footer -->
@@ -55,7 +60,8 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Bootstrap core JavaScript-->
     <script src="{{asset('assets/admin/vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('assets/admin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -75,6 +81,8 @@
     <script src="{{asset('assets/admin/js/demo/datatables-demo.js')}}"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+   
 
 </body>
 

@@ -416,6 +416,30 @@ CSS STRUCTURE:
   
   
   /* pet clothing */
+
+
+.product-detail img {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.product-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.product-detail .btn {
+  margin-right: 0.5rem;
+}
+
+ .imgthumbnail {
+    width: 250px !important;
+    height: 250px!important;
+    object-fit: cover;
+
+  }
+  
   .card {
     --bs-card-inner-border-radius: none;
     --bs-card-bg: transparent;

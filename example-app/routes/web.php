@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\ProductController;
+use App\Http\Controllers\ContactController;
+
 // Client routes
 
 
@@ -14,6 +17,16 @@ Route::prefix('/')->group(function () {
     Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
+    Route::get('/product/{id}', [HomepageController::class, 'showProduct'])-> name('products.detail');
+    Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
+    Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
+    Route::get('/cart/items', [HomepageController::class, 'getCartItems'])->name('cart.items');
+    Route::get('/cart/count', [CartController::class, 'getCartCount']);
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
+    Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
 });
 
 // Admin routes

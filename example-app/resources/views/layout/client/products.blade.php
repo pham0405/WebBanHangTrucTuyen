@@ -6,9 +6,13 @@
         @foreach($products as $product)
         <div class="swiper-slide">
           <div class="card position-relative">
-            <a href="single-product.html"><img src="{{$product->image}}" class="img-fluid rounded-4" alt="{{ $product->name }}"></a>
+          
+            <a href="single-product.html">
+              <img src="{{$product->image }}" class="imgthumbnail" alt="{{ $product->name }}">
+            </a>
+           
             <div class="card-body p-0">
-              <a href="single-product.html">
+              <a href="{{ route('products.detail', ['id' => $product->id]) }}">
                 <h3 class="card-title pt-4 m-0">{{$product->name}}</h3>
               </a>
               <div class="card-text">

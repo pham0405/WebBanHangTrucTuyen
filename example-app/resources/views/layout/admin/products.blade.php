@@ -43,7 +43,7 @@
                             <tr>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->image }}</td>
+                                <td><img src="{{ $product->image }}" alt="{{ $product->name }}" width="100"></td>
                                 <td>{{ $product->price }}</td>
                                 <td>{{ $product->quantity }}</td>
                                 <td>{{ $product->description }}</td>
@@ -51,8 +51,18 @@
 
                                 <td style="text-align: center;"><a href="#" class="nav-link"><i
                                             class="fa-solid fa-pen-to-square"></i></a></td>
-                                <td onclick=" return confirm('Bạn có chắc rằng muốn xóa ?');" style="text-align: center;"><a
-                                        href="#" class="nav-link"><i class="fa-regular fa-circle-xmark"></i></a></td>
+                                
+                                        <td>
+    <a href="{{ route('products.destroy', $product->id) }}"
+       onclick="event.preventDefault(); if(confirm('Bạn có chắc chắn muốn xóa?')) document.getElementById('delete-form-{{ $product->id }}').submit();">
+       <i class="fa-regular fa-circle-xmark"></i>
+    </a>
+    <form id="delete-form-{{ $product->id }}" action="{{ route('products.destroy', $product->id) }}" method="POST" style="display: none;">
+        @csrf
+        @method('DELETE')
+    </form>
+</td>
+
                             </tr>
                         @endforeach
                     </tbody>

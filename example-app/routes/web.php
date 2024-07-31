@@ -7,6 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PostController;
 
 // Client routes
 
@@ -24,6 +25,8 @@ Route::prefix('/')->group(function () {
     Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
+
+    
 });
 
 // Admin routes

@@ -1,13 +1,4 @@
 
-
-
-
-
-
-
-
-  
-
  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
@@ -137,7 +128,7 @@
                 <span>Welcome, {{ Auth::user()->name }}</span>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="">Log Out</button>
+                    <button type="submit" class="">Đăng Xuất</button>
                 </form>
             @else
                 <a href="{{ route('login') }}" class="">Đăng nhập</a>

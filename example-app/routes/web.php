@@ -60,3 +60,33 @@ Route::resource('products', ProductController::class);
 Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
+// admin
+Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
+
+
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+
+Route::get('/account',[AdminController::class , 'account'])->name('account');
+Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
+Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
+Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
+
+//CategoryAdmin
+Route::get('/category',[CategoryController::class , 'index'])->name('category');
+Route::get('/category/create',[CategoryController::class , 'create'])->name('category.create');
+Route::post('/category',[CategoryController::class , 'store'])->name('category.store');
+Route::get('/category/{id}',[CategoryController::class , 'show'])->name('category.show');
+Route::get('/category/{id}/edit',[CategoryController::class , 'edit'])->name('category.edit');
+Route::put('/category/{id}',[CategoryController::class , 'update'])->name('category.update');
+Route::delete('/category/{id}',[CategoryController::class , 'destroy'])->name('category.destroy');
+
+//productsAdmin
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+

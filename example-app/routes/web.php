@@ -1,20 +1,31 @@
 <?php
 
+use App\Http\Controllers\ProfileController as ProfileControllerAdmin;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\BlogController;
-
 use App\Http\Controllers\CartController;
-use App\Http\Controllers\client\HomepageController;
-use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers\client\ProductController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\UsersController;
+
 // Client routes
 
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileControllerAdmin::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileControllerAdmin::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileControllerAdmin::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
 
 Route::prefix('/')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
@@ -34,36 +45,7 @@ Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->n
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
 });
 
-// Admin routes
-Route::prefix('/admin')->group(function () {
-    Route::get('/productsAdm', [AdminController::class, 'productsAdm'])->name('productsAdm');
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/category', [AdminController::class, 'category'])->name('category');
-    Route::get('/account', [AdminController::class, 'account'])->name('account');
-    Route::get('/comment', [AdminController::class, 'comment'])->name('comment');
-    Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
-    Route::get('/addProd', [AdminController::class, 'addProd'])->name('addProd');
-    Route::get('/addCate', [AdminController::class, 'addCate'])->name('addCate');
-    Route::get('/ordersDetail', [AdminController::class, 'ordersDetail'])->name('ordersDetail');
-});
 
-// Profile routes with middleware
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-// Authentication routes
-require __DIR__.'/auth.php';
-
-// client
-
-
-Route::resource('products', ProductController::class);
-
-Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 // admin
 Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
@@ -72,7 +54,7 @@ Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
-Route::get('/account',[ProfileController::class , 'index'])->name('account');
+Route::get('/account',[UsersController::class , 'index'])->name('account');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');

@@ -343,7 +343,7 @@ CSS STRUCTURE:
       box-shadow: 0 2em 0 0 var(--accent-color);
     }
   }
-
+  
   
   /* search bar style  */
   .search-bar {
@@ -391,6 +391,7 @@ CSS STRUCTURE:
     opacity: 1;
     width: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 15px));
     height: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 15px));
+    
   }
   
   .swiper-pagination-bullet.swiper-pagination-bullet-active {
@@ -402,10 +403,43 @@ CSS STRUCTURE:
   .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
     margin: 0 var(--swiper-pagination-bullet-horizontal-gap, 8px);
   }
+  .swiper-pagination {
+    text-align: center;
+    font-size: 14px;
+    color: #000; /* Thay đổi màu sắc nếu cần */
+  }
+  
+  .swiper-button-next, .swiper-button-prev {
+    color: #000; /* Thay đổi màu sắc nếu cần */
+  }
   
   
   
   /* pet clothing */
+
+
+.product-detail img {
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.product-detail h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.product-detail .btn {
+  margin-right: 0.5rem;
+}
+
+ .imgthumbnail {
+    width: 250px !important;
+    height: 250px!important;
+    object-fit: cover;
+
+  }
+  
   .card {
     --bs-card-inner-border-radius: none;
     --bs-card-bg: transparent;

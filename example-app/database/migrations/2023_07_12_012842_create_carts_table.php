@@ -13,19 +13,25 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
+            $table->date('date');
+            $table->text('address');
+            $table->decimal('total', 10, 2);
+            // $table->unsignedBigInteger('payment_method');
+            $table->unsignedBigInteger('order_id');
+            $table->string('status')->nullable();
+            $table->timestamps();
+            
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')
                 ->references('id')
                 ->on('products')
                 ->onDelete('cascade');
-            $table->unsignedBigInteger('user_id');
+
+                $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
-                  ->references('id')
-                  ->on('users')
-                  ->onDelete('cascade');
-            $table->double('total');
-            $table->double('quantity');
-            $table->timestamps();
+                ->references('id')
+                ->on('users') // Ensure the table name is correct
+                ->onDelete('cascade');
         });
     }
 

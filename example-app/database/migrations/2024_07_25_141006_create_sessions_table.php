@@ -11,6 +11,26 @@ return new class extends Migration
      */
     public function up(): void
     {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('frist_name');
+            $table->string('last_name');
+            $table->string('user_name');
+            $table->string('password');
+            $table->string('address');
+            $table->string('phone_number');
+            $table->string('role');
+            $table->string('email');
+            $table->string('status');
+            $table->timestamps();
+        });
+
+        Schema::create('password_reset_tokens', function (Blueprint $table) {
+            $table->string('email')->primary();
+            $table->string('token');
+            $table->timestamp('created_at')->nullable();
+        });
+
         Schema::create('sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignId('user_id')->nullable()->index();

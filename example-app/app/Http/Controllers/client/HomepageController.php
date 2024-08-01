@@ -16,7 +16,7 @@ class HomepageController extends Controller
     }
 
 
-    public function products(){
+    public function products(){php artisan migrate
         
         return view('layout.client.products');
     }

@@ -7,7 +7,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProductController;
-
+use App\Http\Controllers\Admin\BlogController;
 
 
 
@@ -39,7 +39,7 @@ Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
-Route::get('/account',[AdminController::class , 'account'])->name('account');
+Route::get('/account',[ProfileController::class , 'index'])->name('account');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
@@ -61,4 +61,7 @@ Route::get('/products/{id}', [ProductController::class, 'show'])->name('products
 Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
 Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+
+//Blog
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 

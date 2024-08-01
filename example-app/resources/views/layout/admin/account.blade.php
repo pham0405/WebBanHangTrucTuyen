@@ -15,11 +15,8 @@
                     <tr>
                         <th>#</th>
                         <th>Tên</th>
-                        <th>Địa Chỉ</th>
-                        <th>Số Điện Thoại</th>
                         <th>Email</th>
                         <th>Vai Trò</th>
-                        <th>Tình Trạng</th>
                         <th>Khóa Tài Khoản</th>
                     </tr>
                 </thead>
@@ -27,16 +24,24 @@
                     <tr>
                         <th>#</th>
                         <th>Tên</th>
-                        <th>Địa Chỉ</th>
-                        <th>Số Điện Thoại</th>
+                      
+                        
                         <th>Email</th>
                         <th>Vai Trò</th>
-                        <th>Tình Trạng</th>
+                       
                         <th>Khóa Tài Khoản</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                    
+                    @foreach ($users as $user)
+<tr>
+    <th>{{$user->id}}</th>
+    <th>{{$user->name}}</th>
+    <th>{{$user->email}}</th>
+    <th>{{$user->userType}}</th>
+</tr>
+
+                    @endforeach
                    
                 </tbody>
             </table>

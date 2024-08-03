@@ -1,3 +1,5 @@
+
+
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
@@ -212,7 +214,7 @@
                             <a href="{{ route('contact') }}" class="nav-link">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('orther') }}" class="nav-link">Others</a>
+                            <a href="{{ route('gioithieu') }}" class="nav-link">Giới Thiệu</a>
                         </li>
 
 

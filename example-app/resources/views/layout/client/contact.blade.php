@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="p-4 bg-white border rounded">
-                    <h1 class="text-center" style="color: #DEAD6F">Waggy pet Shop</h1>
+                    <h1 class="text-center" style="color: #DEAD6F">Waggy Pet Shop</h1>
                     <h2 class="text-center">Contact Us</h2>
                     @if(session('success'))
                         <div class="alert alert-success">
@@ -35,29 +35,29 @@
                         @csrf
                         <div class="form-group">
                             <label for="fullName">
-                                <i class="fa fa-user"></i> Full Name:
+                                <i class="fa fa-user"></i> Họ Và Tên:
                             </label>
                             <input type="text" class="form-control" id="fullName" name="fullName" required>
                         </div>
                         <div class="form-group">
                             <label for="email">
-                                <i class="fa fa-envelope"></i> Email Address:
+                                <i class="fa fa-envelope"></i> Email :
                             </label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="mobile">
-                                <i class="fa fa-phone"></i> Contact No:
+                                <i class="fa fa-phone"></i> Số Điện Thoại:
                             </label>
                             <input type="tel" class="form-control" id="mobile" name="mobile" required>
                         </div>
                         <div class="form-group">
                             <label for="msg">
-                                <i class="fa fa-comment"></i> Write Message:
+                                <i class="fa fa-comment"></i> Nội Dung :
                             </label>
                             <textarea class="form-control" id="msg" name="msg" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        <button type="submit" class="btn btn-success btn-block">Gửi</button>
                     </form>
                 </div>
             </div>

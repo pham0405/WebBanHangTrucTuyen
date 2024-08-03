@@ -87,6 +87,81 @@ CSS STRUCTURE:
 /*--------------------------------------------------------------
 /** 1. VARIABLES
 --------------------------------------------------------------*/
+
+
+
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .nav-menu {
+            font-family: 'Roboto', sans-serif;
+            font-size: 16px;
+            font-weight: 700; /* Bold */
+            color: #333;
+        }
+
+        .main-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        .sub-heading {
+            font-family: 'Roboto', sans-serif;
+            font-size: 24px;
+            font-weight: 400; /* Normal */
+            color: #666;
+        }
+
+        .content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .promo-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+        }
+
+        /* reset font */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* set font family for specific elements */
+.nav-menu,
+.main-heading,
+.sub-heading,
+.content,
+.promo-text,
+.btn-primary,
+.breadcrumb.text-white,
+.dropdown-menu,
+.secondary-font,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.search-bar ::placeholder,
+.testimonial-content,
+.blog-paragraph,
+.blog-read,
+.service-icon {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+        
+  
 :root {
     /* widths for rows and containers
        */
@@ -250,7 +325,7 @@ CSS STRUCTURE:
     letter-spacing: 0.01625rem;
   }
   
-  h1,
+  /* h1,
   h2,
   h3,
   h4,
@@ -260,7 +335,7 @@ CSS STRUCTURE:
     color: var(--bs-body-color);
     font-weight: 400;
     text-transform: capitalize;
-  }
+  } */
   
   a {
     text-decoration: none;

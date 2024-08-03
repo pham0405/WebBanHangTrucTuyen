@@ -32,7 +32,7 @@
       });
   
       var bestselling_swiper = new Swiper(".bestselling-swiper", {
-        slidesPerView: 4,
+        slidesPerView: 20,
         spaceBetween: 30,
         speed: 500,
         breakpoints: {
@@ -58,22 +58,35 @@
       });
   
       var products_swiper = new Swiper(".products-carousel", {
-        slidesPerView: 4,
-        spaceBetween: 30,
+        slidesPerView: 4, // Hiển thị 4 sản phẩm cùng lúc
+        spaceBetween: 20, // Khoảng cách giữa các sản phẩm
         speed: 500,
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'fraction', // Sử dụng kiểu phân trang bằng số
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
         breakpoints: {
           0: {
             slidesPerView: 1,
           },
           768: {
-            slidesPerView: 3,
+            slidesPerView: 2,
           },
           991: {
+            slidesPerView: 3,
+          },
+          1200: {
             slidesPerView: 4,
           },
-  
         }
       });
+      
+      
   
     }
   

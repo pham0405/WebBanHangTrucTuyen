@@ -1,14 +1,4 @@
-
-
-
-
-
-
-
-
-  
-
- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
     <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
             <path fill="currentColor"
@@ -82,47 +72,10 @@
     <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
-    <div class="offcanvas-body">
-        <div class="order-md-last">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-primary">Your cart</span>
-                <span class="badge bg-primary rounded-circle pt-2">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Grey Hoodie</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$12</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Dog Food</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$8</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-sm">
-                    <div>
-                        <h6 class="my-0">Soft Toy</h6>
-                        <small class="text-body-secondary">Brief description</small>
-                    </div>
-                    <span class="text-body-secondary">$5</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span class="fw-bold">Total (USD)</span>
-                    <strong>$20</strong>
-                </li>
-            </ul>
-
-            <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
-        </div>
-    </div>
+    <x-cart-summary />
 </div>
 
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
-    aria-labelledby="Search">
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
     <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -148,7 +101,7 @@
 
             <div class="col-sm-4 col-lg-3 text-center text-sm-start">
                 <div class="main-logo">
-                    <a href="index.html">
+                    <a href="{{ route('homepage') }}">
                         <img src="{{ asset('assets/client/images/logo.png') }}" alt="logo" class="img-fluid">
                     </a>
                 </div>
@@ -170,14 +123,16 @@
 
             <div
                 class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-                <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Phone</span>
-                    <h5 class="mb-0">+980-34984089</h5>
-                </div>
-                <div class="support-box text-end d-none d-xl-block">
-                    <span class="fs-6 secondary-font text-muted">Email</span>
-                    <h5 class="mb-0">waggy@gmail.com</h5>
-                </div>
+                @if (Auth::check())
+                    <span>Welcome, {{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="">Log Out</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="">Đăng nhập</a>
+                    <a href="{{ route('register') }}" class="">Đăng ký</a>
+                @endif
 
 
 
@@ -195,7 +150,7 @@
             <div class="d-flex d-lg-none align-items-end mt-3">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        <a href="account.html" class="mx-3">
+                        <a href="{{ route('profile.edit') }}" class="mx-3">
                             <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                         </a>
                     </li>
@@ -209,8 +164,9 @@
                         <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                             aria-controls="offcanvasCart">
                             <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                            <span class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                                03
+                            <span
+                                class=" cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+                                0
                             </span>
                         </a>
                     </li>
@@ -240,13 +196,7 @@
                 </div>
 
                 <div class="offcanvas-body justify-content-between">
-                    <select class="filter-categories border-0 mb-0 me-5">
-                        <option>Shop by Category</option>
-                        <option>Clothes</option>
-                        <option>Food</option>
-                        <option>Food</option>
-                        <option>Toy</option>
-                    </select>
+
 
                     <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
                         <li class="nav-item">
@@ -271,7 +221,7 @@
                     <div class="d-none d-lg-flex align-items-end">
                         <ul class="d-flex justify-content-end list-unstyled m-0">
                             <li>
-                                <a href="account.html" class="mx-3">
+                                <a href="{{ route('profile.edit') }}" class="mx-3">
                                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                                 </a>
                             </li>
@@ -286,8 +236,8 @@
                                     data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                                     <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
                                     <span
-                                        class="position-absolute translate-middle badge rounded-circle bg-primary pt-2">
-                                        03
+                                        class="cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+                                        0
                                     </span>
                                 </a>
                             </li>
@@ -305,4 +255,21 @@
 
     </div>
 </header>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        function updateCartCount() {
+            fetch('/cart/count')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll('.cart-count').forEach(el => el.textContent = data.count);
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        updateCartCount();
+
+        // Có thể thiết lập để cập nhật định kỳ nếu cần thiết
+        // setInterval(updateCartCount, 60000); // cập nhật mỗi phút
+    });
+</script>
 <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->

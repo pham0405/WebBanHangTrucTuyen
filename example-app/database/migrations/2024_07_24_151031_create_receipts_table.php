@@ -14,15 +14,20 @@ return new class extends Migration
         Schema::create('receipts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('cart_id');
+            $table->decimal('amount', 8, 2);
             $table->foreign('cart_id')
                 ->references('id')
                 ->on('carts')
                 ->onDelete('cascade');
             $table->dateTime('date');
             $table->string('payment_method');
+            $table->string('status')->default('pending');
             $table->string('address');
             $table->double('total');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+
         });
     }
 

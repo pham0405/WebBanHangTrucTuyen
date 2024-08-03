@@ -75,8 +75,7 @@
     <x-cart-summary />
 </div>
 
-<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch"
-    aria-labelledby="Search">
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasSearch" aria-labelledby="Search">
     <div class="offcanvas-header justify-content-center">
         <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
@@ -102,7 +101,7 @@
 
             <div class="col-sm-4 col-lg-3 text-center text-sm-start">
                 <div class="main-logo">
-                    <a href="index.html">
+                    <a href="{{ route('homepage') }}">
                         <img src="{{ asset('assets/client/images/logo.png') }}" alt="logo" class="img-fluid">
                     </a>
                 </div>
@@ -124,14 +123,16 @@
 
             <div
                 class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
-                <div class="support-box text-end d-none d-xl-block">
-                    <a href="" class="fs-6 secondary-font text-muted">Đăng Ký</a>
-                    
-                </div>
-                <div class="support-box text-end d-none d-xl-block">
-                    <a href="" class="fs-6 secondary-font text-muted">Đăng Nhập</a>
-                    
-                </div>
+                @if (Auth::check())
+                    <span>Welcome, {{ Auth::user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="">Log Out</button>
+                    </form>
+                @else
+                    <a href="{{ route('login') }}" class="">Đăng nhập</a>
+                    <a href="{{ route('register') }}" class="">Đăng ký</a>
+                @endif
 
 
 
@@ -149,7 +150,7 @@
             <div class="d-flex d-lg-none align-items-end mt-3">
                 <ul class="d-flex justify-content-end list-unstyled m-0">
                     <li>
-                        <a href="{{route('profile.edit')}}" class="mx-3">
+                        <a href="{{ route('profile.edit') }}" class="mx-3">
                             <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                         </a>
                     </li>
@@ -163,7 +164,8 @@
                         <a href="#" class="mx-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvasCart"
                             aria-controls="offcanvasCart">
                             <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                            <span class=" cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
+                            <span
+                                class=" cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
                                 0
                             </span>
                         </a>
@@ -194,14 +196,14 @@
                 </div>
 
                 <div class="offcanvas-body justify-content-between">
-                   
+
 
                     <ul class="navbar-nav menu-list list-unstyled d-flex gap-md-3 mb-0">
                         <li class="nav-item">
                             <a href="{{ route('homepage') }}" class="nav-link active">Trang Chủ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('product') }}" class="nav-link">sản phẩm</a>
+                            <a href="{{ route('product') }}" class="nav-link">Sản Phẩm</a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('blog') }}" class="nav-link">Bài Viết</a>
@@ -210,7 +212,7 @@
                             <a href="{{ route('contact') }}" class="nav-link">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('gioithieu') }}" class="nav-link">Giới thiệu</a>
+                            <a href="{{ route('orther') }}" class="nav-link">Others</a>
                         </li>
 
 
@@ -219,7 +221,7 @@
                     <div class="d-none d-lg-flex align-items-end">
                         <ul class="d-flex justify-content-end list-unstyled m-0">
                             <li>
-                                <a href="{{route('profile.edit')}}" class="mx-3">
+                                <a href="{{ route('profile.edit') }}" class="mx-3">
                                     <iconify-icon icon="healthicons:person" class="fs-4"></iconify-icon>
                                 </a>
                             </li>
@@ -233,7 +235,7 @@
                                 <a href="#" class="mx-3" data-bs-toggle="offcanvas"
                                     data-bs-target="#offcanvasCart" aria-controls="offcanvasCart">
                                     <iconify-icon icon="mdi:cart" class="fs-4 position-relative"></iconify-icon>
-                                    <span 
+                                    <span
                                         class="cart-count position-absolute translate-middle badge rounded-circle bg-primary pt-2">
                                         0
                                     </span>
@@ -254,21 +256,20 @@
     </div>
 </header>
 <script>
- document.addEventListener('DOMContentLoaded', function() {
-    function updateCartCount() {
-        fetch('/cart/count')
-            .then(response => response.json())
-            .then(data => {
-                document.querySelectorAll('.cart-count').forEach(el => el.textContent = data.count);
-            })
-            .catch(error => console.error('Error:', error));
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        function updateCartCount() {
+            fetch('/cart/count')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelectorAll('.cart-count').forEach(el => el.textContent = data.count);
+                })
+                .catch(error => console.error('Error:', error));
+        }
 
-    updateCartCount();
+        updateCartCount();
 
-    // Có thể thiết lập để cập nhật định kỳ nếu cần thiết
-    // setInterval(updateCartCount, 60000); // cập nhật mỗi phút
-});
-
+        // Có thể thiết lập để cập nhật định kỳ nếu cần thiết
+        // setInterval(updateCartCount, 60000); // cập nhật mỗi phút
+    });
 </script>
 <!-- Waste no more time arguing what a good man should be, be one. - Marcus Aurelius -->

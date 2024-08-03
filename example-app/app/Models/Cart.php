@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use PayPal\Api\Item;
 
 class Cart extends Model
 {
@@ -16,6 +17,10 @@ class Cart extends Model
     public function product()
     {
         return $this->belongsTo(Product::class);
+    }
+    public function items()
+    {
+        return $this->hasMany(Item::class);
     }
 }
 

@@ -54,7 +54,7 @@
                     @endforeach
                 </tbody>
             </table>
-            <a href="" class="btn btn-primary">Thanh toán</a>
+            <a href="{{route ('payment.index') }}" class="btn btn-primary">Thanh toán</a>
         @endif
     </div>
 </div>

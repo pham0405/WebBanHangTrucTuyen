@@ -16,6 +16,7 @@ class DashboardController extends Controller
         $cateCount = Category::count();
         $userCount = User::count();
         $products = Product::orderBy('view', 'desc')->take(5)->get();
+        //$comments = Comment::orderBy('created_at', 'desc')->take(5)->get();
         return view('layout.admin.dashboard',
         [
             'productCount' => $productCount,

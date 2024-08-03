@@ -21,7 +21,7 @@
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                     Tổng Sản Phẩm</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><a
-                                        href="?page=listProducts"><span>{{ $productCount }}</span> sản phẩm</a></div>
+                                        href="/products"><span>{{ $productCount }}</span> sản phẩm</a></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-shop fa-2x text-gray-300"></i>
@@ -40,7 +40,7 @@
                                 <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                                     Tổng Loại</div>
                                 <div class="h5 mb-0 font-weight-bold text-gray-800"><a
-                                        href="?page=listCategories"><span>{{ $cateCount }}</span>danh mục</a></div>
+                                        href="/category"><span>{{ $cateCount }}</span> danh mục</a></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fa-solid fa-shirt fa-2x text-gray-300"></i>
@@ -56,7 +56,7 @@
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                                     Tổng Bình Luận</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="?page=listComments"> bình
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><a href="/comment"> bình
                                         luận</a></div>
                             </div>
                             <div class="col-auto">
@@ -76,7 +76,7 @@
                                 <div class="row no-gutters align-items-center">
                                     <div class="col-auto">
                                         <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><a
-                                                href="?page=listUsers"><span>{{ $userCount }}</span> người dùng</a></div>
+                                                href="/account"><span>{{ $userCount }}</span> người dùng</a></div>
                                     </div>
                                 </div>
                             </div>

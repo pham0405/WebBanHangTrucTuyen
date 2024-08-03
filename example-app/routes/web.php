@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\ProfileController as ProfileControllerAdmin;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
@@ -16,9 +16,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileControllerAdmin::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileControllerAdmin::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileControllerAdmin::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -39,7 +39,7 @@ Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
-Route::get('/account',[ProfileController::class , 'index'])->name('account');
+Route::get('/account',[ProfileControllerAdmin::class , 'index'])->name('account');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');

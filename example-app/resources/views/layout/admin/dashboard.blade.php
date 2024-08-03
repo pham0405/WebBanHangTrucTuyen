@@ -109,7 +109,10 @@
               var ctx = document.getElementById('productChart').getContext('2d');
           
               // Chuyển dữ liệu sản phẩm thành JSON và lấy dữ liệu name và quantity
-              var products = @json($products);
+              // Truyền dữ liệu từ PHP vào JavaScript
+              var products = {!! json_encode($products) !!};
+              var productCount = {{ $productCount }};
+                  
               var productNames = products.map(product => product.name.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
               var productQuantities = products.map(product => product.view);
           

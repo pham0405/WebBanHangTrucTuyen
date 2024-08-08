@@ -2,9 +2,11 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+
 use App\Http\Controllers\client\HomepageController;
 
-use App\Http\Controllers\PaymentController;
+
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\ProductController;
@@ -31,11 +33,10 @@ Route::prefix('/')->group(function () {
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
 
+    Route::post('/momo_payment', [CheckoutController::class, 'momo_payment'])->name('momo_payment');
 
+    Route::post('/vnpay_payment', [CheckoutController::class, 'vnpay_payment'])->name('vnpay_payment');
 
-    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-    Route::post('/payment', [PaymentController::class, 'pay'])->name('payment.pay');
-    Route::get('/payment/return', [PaymentController::class, 'return'])->name('payment.return');
 
 
 });

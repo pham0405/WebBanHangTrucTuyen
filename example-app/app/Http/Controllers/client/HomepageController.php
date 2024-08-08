@@ -81,6 +81,8 @@ public function showProduct($id)
         return view('layout.client.orther');
     }
 
+    
+
 
     
     public function getCartItems()

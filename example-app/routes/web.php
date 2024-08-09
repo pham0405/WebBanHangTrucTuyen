@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\Admin\userController;
 use App\Http\Controllers\ProfileController ;
 use Illuminate\Support\Facades\Route;
@@ -18,10 +19,26 @@ use App\Http\Controllers\Admin\ProductController;
 // Client routes
 
 
+
+// Client routes
+
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileControllerAdmin::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileControllerAdmin::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileControllerAdmin::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+
 Route::prefix('/')->group(function () {
-    Route::get('/', [HomepageController::class, 'index'])->name('homepage');
-    Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
-    Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
+   
+  
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
     Route::get('/product/{id}', [HomepageController::class, 'showProduct'])->name('products.detail');
@@ -44,6 +61,7 @@ Route::prefix('/')->group(function () {
 
 
 });
+
 
 
 
@@ -75,6 +93,7 @@ Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
 
 
+
 // admin
 Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 
@@ -82,9 +101,13 @@ Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
+
 Route::get('/account',[userController::class , 'index'])->name('account');
 Route::post('/admin/users/lock/{user_id}', [userController::class, 'lockUsers'])->name('admin.users.lock');
 Route::post('/admin/users/unlock/{user_id}', [userController::class, 'unLockUsers'])->name('admin.users.unlock');
+
+Route::get('/account',[UsersController::class , 'index'])->name('account');
+
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
@@ -110,7 +133,9 @@ Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('pr
 
 //Blog
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+
 Route::resource('products', ProductController::class);
+
 
 Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
 Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');

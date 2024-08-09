@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
+
+
+
+ <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+
     <defs>
         <symbol xmlns="http://www.w3.org/2000/svg" id="link" viewBox="0 0 24 24">
             <path fill="currentColor"
@@ -121,6 +126,7 @@
                 </div>
             </div>
 
+
             <div
                 class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
                 @if (Auth::check())
@@ -133,6 +139,19 @@
                     <a href="{{ route('login') }}" class="">Đăng nhập</a>
                     <a href="{{ route('register') }}" class="">Đăng ký</a>
                 @endif
+
+
+            <div class="col-sm-8 col-lg-4 d-flex justify-content-end gap-5 align-items-center mt-4 mt-sm-0 justify-content-center justify-content-sm-end">
+                @if(Auth::check())
+                <span>Welcome, {{ Auth::user()->name }}</span>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="">Đăng Xuất</button>
+                </form>
+            @else
+                <a href="{{ route('login') }}" class="">Đăng nhập</a>
+                <a href="{{ route('register') }}" class="">Đăng ký</a>
+            @endif
 
 
 

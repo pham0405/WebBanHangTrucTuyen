@@ -27,7 +27,7 @@ Route::prefix('/')->group(function () {
     Route::get('/cart/count', [CartController::class, 'getCartCount']);
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
-    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');    
     Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
 });
@@ -38,7 +38,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
 // Authentication routes
 require __DIR__.'/auth.php';
 

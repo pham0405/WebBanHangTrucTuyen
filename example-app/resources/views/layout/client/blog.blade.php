@@ -1,6 +1,8 @@
 @extends('layout.master')
+
 @section('contents')
 @title('Bài viết')
+
 <div>
     <section id="latest-blog" class="my-5">
         <div class="container py-5 my-5">
@@ -19,17 +21,17 @@
             </div>
             <div class="row">
                 @foreach($blog as $post)
-                <div class="col-lg-3 ">
+                <div class="col-lg-3">
                     <div class="card">
-                        <a href="single-post.html">
-                            <img src="{{ $post->image }}" class="card-img-top" alt="{{$post->name}}">
+                        <a href="{{ route('blog.show', $post->id) }}">
+                            <img src="{{ $post->image }}" class="card-img-top" alt="{{ $post->title }}">
                         </a>
                         <div class="card-body">
-                            <a href="single-post.html">
+                            <a href="{{ route('blog.show', $post->id) }}">
                                 <h3 class="card-title">{{ $post->title }}</h3>
                             </a>
-                            <p class="card-text">{{ $post->content }}</p>
-                            <a href="single-post.html" class="btn btn-primary">Read More</a>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($post->content, 100) }}</p>
+                            <a href="{{ route('blog.show', $post->id) }}" class="btn btn-primary">Read More</a>
                         </div>
                     </div>
                 </div>

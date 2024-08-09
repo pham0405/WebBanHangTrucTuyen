@@ -28,31 +28,28 @@ class HomepageController extends Controller
     // Hiển thị trang sản phẩm
     public function products()
     {
-        // Caching dữ liệu sản phẩm để cải thiện hiệu suất
-        $products = cache()->remember('products', 60, function () {
-            return Product::all();
-        });
+       
+        $products = Product::all();
+        $product_categories = Category::all();
 
-        return view('layout.client.products', ['products' => $products]);
+        return view('layout.client.products', [
+            'products' => $products,
+            'product_categories' => $product_categories
+        ]);
     }
-    public function blog()
-{
-    $posts = cache()->remember('blog', 60, function () {
-        return Post::all();
-    });
-    return view('layout.client.blog', ['blog' => $posts]);
-}
-public function showProduct($id)
-{
-    $product = Product::find($id);
-
-    if (!$product) {
-        abort(404);
+    public function showProduct($id)
+    {
+        $product = Product::find($id);
+        if (!$product) {
+            abort(404);
+        }
+        $product_categories = Category::all();
+        return view('layout.client.products-detail', [
+            'product' => $product,
+            'product_categories' => $product_categories
+        ]);
     }
-    $product_categories = Category::all();
-    return view('layout.client.products-detail', ['product' => $product,
-        'product_categories' => $product_categories]);
-}
+    
 
 
     // Hiển thị trang liên hệ
@@ -74,14 +71,19 @@ public function showProduct($id)
         return view('layout.client.cart');
     }
 
+ 
 
-    // Hiển thị trang khác
-    public function orther()
+
+
+    public function thanhtoan()
     {
-        return view('layout.client.orther');
-    }
+        $user_id = Auth::id();
+        $carts = Cart::with('product')->where('user_id', $user_id)->get();
+        $totalAmount = $carts->sum('total');
+        $totalQuantity = $carts->sum('quantity');
 
-    
+        return view('layout.client.checkout' ,compact('carts', 'totalAmount', 'totalQuantity'));
+       }
 
 
     

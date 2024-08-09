@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
 
@@ -18,7 +19,6 @@ use App\Http\Controllers\ContactController;
 Route::prefix('/')->group(function () {
     Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
-    Route::get('/baiviet', [HomepageController::class, 'blog'])->name('blog');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
     Route::get('/product/{id}', [HomepageController::class, 'showProduct'])->name('products.detail');
@@ -37,7 +37,10 @@ Route::prefix('/')->group(function () {
 
     Route::post('/vnpay_payment', [CheckoutController::class, 'vnpay_payment'])->name('vnpay_payment');
 
-
+    Route::post('/thanhtoan', [HomepageController::class, 'thanhtoan'])->name('checkout');
+    
+    Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+    Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 });
 

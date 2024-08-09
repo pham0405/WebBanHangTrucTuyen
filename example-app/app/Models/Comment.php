@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    protected $table ='comments';
-    protected $fillable = [
-       
-    ];
-    public function category()
-    {
+    use HasFactory;
 
-        return $this ->belongsTo(Category::class,'category_id');
-    } 
-    
-        
+    protected $fillable = [
+        'user_id',
+        'product_id',
+        'content',
+        'status',
+    ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

@@ -8,8 +8,8 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-
-class AuthenticatedSessionController extends Controller
+use Illuminate\Support\Facades\Facade;
+class AuthenticatedSessionController extends Controller 
 {
     /**
      * Display the login view.
@@ -23,21 +23,28 @@ class AuthenticatedSessionController extends Controller
      * Handle an incoming authentication request.
      */
     public function store(LoginRequest $request): RedirectResponse
-    {
-        $request->authenticate();
+{
+    $request->authenticate();
 
-        $request->session()->regenerate();
+    $request->session()->regenerate();
 
-        $user = Auth::user();
+    $user = Auth::user();
 
-        if ($user->userType === 'ADM') {
-            return redirect()->intended('/admin/dashboard');
-        } elseif ($user->userType === 'USR') {
-            return redirect()->intended('/');
-        }
+    
 
-        return redirect()->intended('/default'); 
+    if ($user->userType === 'ADM') {
+        
+        return redirect()->intended('/admin');
+
+    } elseif ($user->userType === 'USR') {
+       
+        return redirect()->intended('/');
     }
+
+  
+    return redirect()->intended('/default'); 
+}
+
 
     /**
      * Destroy an authenticated session.

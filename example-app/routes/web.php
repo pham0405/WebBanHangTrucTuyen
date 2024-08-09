@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\client\ProductController;
+use App\Http\Controllers\client\ProductController as ClientProductController;
 use App\Http\Controllers\ContactController;
 
 // Client routes
@@ -24,22 +27,9 @@ Route::prefix('/')->group(function () {
     Route::get('/cart/count', [CartController::class, 'getCartCount']);
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::patch('/cart/update/{id}', [CartController::class, 'updateQuantity'])->name('cart.update');
-Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+    Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
     Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
-});
-
-// Admin routes
-Route::prefix('/admin')->group(function () {
-    Route::get('/productsAdm', [AdminController::class, 'productsAdm'])->name('productsAdm');
-    Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
-    Route::get('/category', [AdminController::class, 'category'])->name('category');
-    Route::get('/account', [AdminController::class, 'account'])->name('account');
-    Route::get('/comment', [AdminController::class, 'comment'])->name('comment');
-    Route::get('/orders', [AdminController::class, 'orders'])->name('orders');
-    Route::get('/addProd', [AdminController::class, 'addProd'])->name('addProd');
-    Route::get('/addCate', [AdminController::class, 'addCate'])->name('addCate');
-    Route::get('/ordersDetail', [AdminController::class, 'ordersDetail'])->name('ordersDetail');
 });
 
 // Profile routes with middleware
@@ -55,10 +45,10 @@ require __DIR__.'/auth.php';
 // client
 
 
-Route::resource('products', ProductController::class);
+// Route::resource('products', ClientProductController::class);
 
-Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
+// Route::get('products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+// Route::delete('products/{product}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 // admin
 Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
@@ -82,11 +72,11 @@ Route::put('/category/{id}',[CategoryController::class , 'update'])->name('categ
 Route::delete('/category/{id}',[CategoryController::class , 'destroy'])->name('category.destroy');
 
 //productsAdmin
-Route::get('/products', [ProductController::class, 'index'])->name('products.index');
-Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
-Route::post('/products', [ProductController::class, 'store'])->name('products.store');
-Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
-Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
-Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
-Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [AdminProductController::class, 'create'])->name('products.create');
+Route::post('/products', [AdminProductController::class, 'store'])->name('products.store');
+Route::get('/products/{id}', [AdminProductController::class, 'show'])->name('products.show');
+Route::get('/products/{id}/edit', [AdminProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{id}', [AdminProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');
 

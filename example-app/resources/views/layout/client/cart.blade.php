@@ -23,28 +23,18 @@
                 </thead>
                 <tbody>
                     @foreach($carts as $cart)
-                    <tr>
+                    <tr id="cart-item-{{ $cart->id }}">
                         <td><img src="{{ $cart->product->image }}" class="img-fluid" alt="{{ $cart->product->name }}" style="width: 100px;"></td>
                         <td>{{ $cart->product->name }}</td>
                         <td>
-                            <form action="{{ route('cart.update', $cart->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @method('PATCH')
-                                <input type="hidden" name="quantity" value="{{ $cart->quantity - 1 }}">
-                                <button type="submit" class="btn btn-sm btn-secondary">-</button>
-                            </form>
-                            {{ $cart->quantity }}
-                            <form action="{{ route('cart.update', $cart->id) }}" method="POST" style="display: inline;">
-                                @csrf
-                                @method('PATCH')
-                                <input type="hidden" name="quantity" value="{{ $cart->quantity + 1 }}">
-                                <button type="submit" class="btn btn-sm btn-secondary">+</button>
-                            </form>
+                            <button class="btn btn-sm btn-secondary decrease-quantity" data-id="{{ $cart->id }}">-</button>
+                            <span class="quantity">{{ $cart->quantity }}</span>
+                            <button class="btn btn-sm btn-secondary increase-quantity" data-id="{{ $cart->id }}">+</button>
                         </td>
                         <td>${{ $cart->product->price }}</td>
-                        <td>${{ $cart->total }}</td>
+                        <td class="total">${{ $cart->total }}</td> <!-- Thêm class "total" để dễ dàng cập nhật bằng JavaScript -->
                         <td>
-                            <form action="{{ route('cart.remove', $cart->id) }}" method="POST">
+                            <form action="{{ route('cart.remove', $cart->id) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Xóa</button>
@@ -58,5 +48,71 @@
         @endif
     </div>
 </div>
-
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Xử lý khi nhấn nút giảm số lượng
+    $('.decrease-quantity').click(function(event) {
+        event.preventDefault();
+        var cartId = $(this).data('id');
+        var quantityElem = $(this).siblings('.quantity');
+        var currentQuantity = parseInt(quantityElem.text());
+
+        if (currentQuantity > 1) { // Đảm bảo số lượng không giảm xuống dưới 1
+            $.ajax({
+                url: '{{ route('cart.update', ':id') }}'.replace(':id', cartId),
+                method: 'PATCH',
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    quantity: currentQuantity - 1
+                },
+                success: function(response) {
+                    if (response.success) {
+                        quantityElem.text(response.newQuantity);
+                        $('#cart-item-' + cartId + ' .total').text('$' + response.newTotal);
+                    } else {
+                        console.error('Cập nhật số lượng thất bại:', response.message);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    console.error('Lỗi AJAX:', status, error);
+                }
+            });
+        }
+    });
+
+    // Xử lý khi nhấn nút tăng số lượng
+    $('.increase-quantity').click(function(event) {
+        event.preventDefault();
+        var cartId = $(this).data('id');
+        var quantityElem = $(this).siblings('.quantity');
+        var currentQuantity = parseInt(quantityElem.text());
+
+        $.ajax({
+            url: '{{ route('cart.update', ':id') }}'.replace(':id', cartId),
+            method: 'PATCH',
+            data: {
+                _token: '{{ csrf_token() }}',
+                quantity: currentQuantity + 1
+            },
+            success: function(response) {
+                if (response.success) {
+                    quantityElem.text(response.newQuantity);
+                    $('#cart-item-' + cartId + ' .total').text('$' + response.newTotal);
+                } else {
+                    console.error('Cập nhật số lượng thất bại:', response.message);
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Lỗi AJAX:', status, error);
+            }
+        });
+    });
+});
+</script>
+
+
+
+
+

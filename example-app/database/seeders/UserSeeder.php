@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
                 'name'=>'Lâm Minh Nhật',
                 'email'=>'lamnhat509@gmail.com',
                 'email_verified_at'=>Now(),
-                'password'=>'1234',
+                'password'=>'12345678',
+                'status'=>1
             ],
         ]);
     }

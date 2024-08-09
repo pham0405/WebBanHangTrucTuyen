@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController as ProfileControllerAdmin;;
+use App\Http\Controllers\Admin\userController;
+use App\Http\Controllers\ProfileController ;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
@@ -47,8 +48,8 @@ Route::prefix('/')->group(function () {
 
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('/');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
@@ -81,7 +82,9 @@ Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 
-Route::get('/account',[ProfileControllerAdmin::class , 'index'])->name('account');
+Route::get('/account',[userController::class , 'index'])->name('account');
+Route::post('/admin/users/lock/{user_id}', [userController::class, 'lockUsers'])->name('admin.users.lock');
+Route::post('/admin/users/unlock/{user_id}', [userController::class, 'unLockUsers'])->name('admin.users.unlock');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');

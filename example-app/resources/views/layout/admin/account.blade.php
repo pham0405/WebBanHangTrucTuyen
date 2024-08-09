@@ -17,6 +17,7 @@
                         <th>Tên</th>
                         <th>Email</th>
                         <th>Vai Trò</th>
+                        <th>Trạng Thái</th>
                         <th>Khóa Tài Khoản</th>
                     </tr>
                 </thead>
@@ -24,11 +25,9 @@
                     <tr>
                         <th>#</th>
                         <th>Tên</th>
-                      
-                        
                         <th>Email</th>
                         <th>Vai Trò</th>
-                       
+                        <th>Trạng Thái</th>
                         <th>Khóa Tài Khoản</th>
                     </tr>
                 </tfoot>
@@ -39,6 +38,24 @@
     <th>{{$user->name}}</th>
     <th>{{$user->email}}</th>
     <th>{{$user->userType}}</th>
+    <th> 
+        @if ($user->status == 1)
+        <span class="badge badge-success">Hoạt Động</span>
+    @else
+        <span class="badge badge-danger">Khóa</span>
+    @endif</th>
+    <th>
+        <form action="{{ $user->status == 1 ? route('admin.users.lock', $user->id) : route('admin.users.unlock', $user->id) }}" method="POST">
+            @csrf
+            <button type="submit" style="border: none; background: none;">
+                @if ($user->status == 1)
+                    <i class="fas fa-lock-open"></i> <!-- Icon mở khóa -->
+                @else
+                    <i class="fas fa-lock"></i> <!-- Icon khóa -->
+                @endif
+            </button>
+        </form>
+    </th>
 </tr>
 
                     @endforeach

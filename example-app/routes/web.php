@@ -1,6 +1,6 @@
-<?php
+<<?php
 
-use App\Http\Controllers\ProfileController as ProfileControllerAdmin;;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
@@ -11,6 +11,9 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ProductController;
+
+
+
 
 
 
@@ -75,13 +78,18 @@ Route::get('/khac',[HomepageController::class , 'Orther'])->name('orther');
 
 
 // admin
-Route::get('/admin',[DashboardController::class , 'dashboard'])->name('admin');
+Route::get('/admin',[AdminController::class , 'index'])->name('admin.dashboard');
+
+Route::get('/login', function () {
+    return view('auth.login'); // Trang đăng nhập
+})->name('login');
 
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+
+Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
 
 
-Route::get('/account',[ProfileControllerAdmin::class , 'index'])->name('account');
+Route::get('/account',[ProfileController::class , 'index'])->name('account');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');

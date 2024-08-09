@@ -1,3 +1,13 @@
+@if(session('error'))
+<p style="text-align: center;
+    color: white;
+    background-color: indianred;
+    font-size: 1.5rem;">{{ session('error') }}</p>
+@endif
+
+
+
+
 <x-guest-layout>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />

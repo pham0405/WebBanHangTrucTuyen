@@ -231,7 +231,7 @@
                             <a href="{{ route('contact') }}" class="nav-link">Liên Hệ</a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('orther') }}" class="nav-link">Others</a>
+                            <a href="{{ route('gioithieu') }}" class="nav-link">Giới Thiệu</a>
                         </li>
 
 

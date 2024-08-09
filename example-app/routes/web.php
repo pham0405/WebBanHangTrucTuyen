@@ -6,9 +6,12 @@ use App\Http\Controllers\ProfileController ;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\CheckoutController;
+
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\PaymentController;
+
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\BlogController;
@@ -37,8 +40,8 @@ require __DIR__.'/auth.php';
 
 
 Route::prefix('/')->group(function () {
-   
-  
+    Route::get('/', [HomepageController::class, 'index'])->name('homepage');
+    Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
     Route::get('/product/{id}', [HomepageController::class, 'showProduct'])->name('products.detail');
@@ -54,11 +57,12 @@ Route::prefix('/')->group(function () {
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
 
 
+    Route::post('/vnpay_payment', [CheckoutController::class, 'vnpay_payment'])->name('vnpay_payment');
 
-    Route::get('/payment', [PaymentController::class, 'index'])->name('payment.index');
-    Route::post('/payment', [PaymentController::class, 'pay'])->name('payment.pay');
-    Route::get('/payment/return', [PaymentController::class, 'return'])->name('payment.return');
-
+    Route::post('/thanhtoan', [HomepageController::class, 'thanhtoan'])->name('checkout');
+    
+    Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+    Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
 });
 

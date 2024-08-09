@@ -30,6 +30,13 @@ Route::prefix('/')->group(function () {
     Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');    
     Route::get('/contact', [ContactController::class, 'showForm'])->name('contact.form');
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
+
+    Route::post('/products/{productId}/comments', [HomepageController::class, 'addComment'])->name('comments.add');
+
+    // Route::get('/products/{id}', [HomepageController::class, 'showProduct'])->name('products.show');
+
+Route::get('/products/category/{categoryId}', [HomepageController::class, 'productsByCategory'])->name('products.byCategory');
+
 });
 
 // Profile routes with middleware

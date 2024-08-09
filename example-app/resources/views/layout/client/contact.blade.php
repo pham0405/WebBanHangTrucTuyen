@@ -45,12 +45,7 @@
                             </label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="mobile">
-                                <i class="fa fa-phone"></i> Contact No:
-                            </label>
-                            <input type="tel" class="form-control" id="mobile" name="mobile" required>
-                        </div>
+                        
                         <div class="form-group">
                             <label for="msg">
                                 <i class="fa fa-comment"></i> Write Message:

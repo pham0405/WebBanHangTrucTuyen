@@ -56,7 +56,15 @@
             <i class="fas fa-comments"></i>
             <span>Bình Luận</span></a>
     </li>
+
     
+    <hr class="sidebar-divider d-none d-md-block">
+    {{-- blog --}}
+    <li class="nav-item active">
+        <a class="nav-link" href="{{ route('comment')}}">
+            <i class="fas fa-comments"></i>
+            <span>Bài viết</span></a>
+    </li>
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

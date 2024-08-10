@@ -110,7 +110,7 @@
             </div>
             <div class="col-sm-6 offset-sm-2 offset-md-0 col-lg-5 d-none d-lg-block">
                 <div class="search-bar border rounded-2 px-3 border-dark-subtle">
-                    <form id="search-form" class="text-center d-flex align-items-center" action="{{ route('product') }}" method="GET">
+                    <form id="search-form" class="text-center d-flex align-items-center" action="{{ route('product.search') }}" method="GET">
                         <input type="text" name="query" class="form-control border-0 bg-transparent" placeholder="Search for more than 10,000 products" value="{{ request()->input('query') }}" />
                         <button type="submit" class="btn btn-outline-secondary">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">

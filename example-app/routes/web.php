@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController as ProfileControllerAdmin;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\HomepageController;
 use App\Http\Controllers\Admin\AdminController;
@@ -20,17 +20,19 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileControllerAdmin::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileControllerAdmin::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileControllerAdmin::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
 
-Route::prefix('/')->group(function () {
-   
-  
+
+
+    Route::prefix('/')->group(function () {
+    Route::get('/', [HomepageController::class, 'index'])->name('homepage');
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
+    Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
     Route::get('/product/{id}', [HomepageController::class, 'showProduct'])-> name('products.detail');
     Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
@@ -45,9 +47,11 @@ Route::prefix('/')->group(function () {
 
     Route::post('/products/{productId}/comments', [HomepageController::class, 'addComment'])->name('comments.add');
 
-    // Route::get('/products/{id}', [HomepageController::class, 'showProduct'])->name('products.show');
+    Route::get('/products/{id}', [HomepageController::class, 'showProduct'])->name('products.show');
 
 Route::get('/products/category/{categoryId}', [HomepageController::class, 'productsByCategory'])->name('products.byCategory');
+Route::get('/product/search', [ProductController::class, 'search'])->name('product.search');
+
 
 });
 
@@ -90,14 +94,15 @@ Route::put('/category/{id}',[CategoryController::class , 'update'])->name('categ
 Route::delete('/category/{id}',[CategoryController::class , 'destroy'])->name('category.destroy');
 
 //productsAdmin
-Route::get('/products', [AdminProductController::class, 'index'])->name('products.index');
-Route::get('/products/create', [AdminProductController::class, 'create'])->name('products.create');
-Route::post('/products', [AdminProductController::class, 'store'])->name('products.store');
-Route::get('/products/{id}', [AdminProductController::class, 'show'])->name('products.show');
-Route::get('/products/{id}/edit', [AdminProductController::class, 'edit'])->name('products.edit');
-Route::put('/products/{id}', [AdminProductController::class, 'update'])->name('products.update');
-Route::delete('/products/{id}', [AdminProductController::class, 'destroy'])->name('products.destroy');
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{id}', [ProductController::class, 'show'])->name('products.show');
+Route::get('/products/{id}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{id}', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('products.destroy');
 
 //Blog
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
-
+// Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
+    Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');

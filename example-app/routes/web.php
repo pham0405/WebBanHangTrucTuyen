@@ -34,7 +34,7 @@ require __DIR__.'/auth.php';
     Route::get('/lienhe', [HomepageController::class, 'contact'])->name('contact');
     Route::get('/sanpham', [HomepageController::class, 'products'])->name('product');
     Route::get('/chinhsach', [HomepageController::class, 'Orther'])->name('orther');
-    Route::get('/product/{id}', [HomepageController::class, 'showProduct'])-> name('products.detail');
+    Route::get('/product/{id}', [HomepageController::class, 'showProduct'])->name('products.detail');
     Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->middleware('auth')->name('cart.add');
     Route::get('/cart', [CartController::class, 'viewCart'])->name('cart.view');
     Route::get('/cart/items', [HomepageController::class, 'getCartItems'])->name('cart.items');
@@ -60,9 +60,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+
+
+
+
 });
 // Authentication routes
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 // client
 

@@ -79,11 +79,30 @@ class HomepageController extends Controller
         return view('layout.client.contact');
     }
 
-    // Hiển thị trang khác
-    public function orther()
+
+    public function gioithieu()
     {
-        return view('layout.client.orther');
+        return view('layout.client.gioithieu');
     }
+    public function cart()
+    {
+
+        return view('layout.client.cart');
+    }
+
+ 
+
+
+
+    public function thanhtoan()
+    {
+        $user_id = Auth::id();
+        $carts = Cart::with('product')->where('user_id', $user_id)->get();
+        $totalAmount = $carts->sum('total');
+        $totalQuantity = $carts->sum('quantity');
+
+        return view('layout.client.checkout' ,compact('carts', 'totalAmount', 'totalQuantity'));
+       }
 
     // Lấy các mặt hàng trong giỏ hàng
     public function getCartItems()

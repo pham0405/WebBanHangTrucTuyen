@@ -1,26 +1,37 @@
 @extends('layout.master')
+
 @section('contents')
-    @title('Sản Phẩm')
-    <div class="row">
+@title('Bài viết')
 
-        <div class="product-section mt-150 mb-150">
-            <div class="container">
-            
-                <div class="row product-lists">
-
-                    @foreach ($blog as $post)
-                        <div class="col-lg-4 col-md-6 text-center strawberry">
-                            <div class="single-product-item">
-                                <div class="product-image">
-                                    <a href="">
-                                        <img src="{{ $post->image }}" class="imgthumbnail" alt="{{ $post->name }}">
-                                    </a>
-                                </div>
-                                
-                                    <h3 class="card-title pt-4 m-0">{{ $post->name }}</h3>
-                             
-                                <h3 class="secondary-font text-primary">{{ $post->title }}</h3>
-                            </div>
+<div>
+    <section id="latest-blog" class="my-5">
+        <div class="container py-5 my-5">
+            <div class="row mt-5">
+                <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
+                    <h2 class="display-3 fw-normal">Latest Blog Post</h2>
+                    <div>
+                        <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
+                            Read all
+                            <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
+                                <use xlink:href="#arrow-right"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                @foreach($blog as $post)
+                <div class="col-lg-3">
+                    <div class="card">
+                        <a href="{{ route('blog.show', $post->id) }}">
+                            <img src="{{ $post->image }}" class="card-img-top" alt="{{ $post->title }}">
+                        </a>
+                        <div class="card-body">
+                            <a href="{{ route('blog.show', $post->id) }}">
+                                <h3 class="card-title">{{ $post->title }}</h3>
+                            </a>
+                            <p class="card-text">{{ \Illuminate\Support\Str::limit($post->content, 100) }}</p>
+                            <a href="{{ route('blog.show', $post->id) }}" class="btn btn-primary">Read More</a>
                         </div>
                     @endforeach
                 </div>

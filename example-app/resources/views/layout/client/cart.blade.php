@@ -1,7 +1,8 @@
 @extends('layout.master')
 
 @section('contents')
-@title('Giỏ hàng')
+    @title('Giỏ hàng')
+
 
 <div class="container md-9">
     <div class="row">
@@ -46,8 +47,45 @@
             </table>
             <a href="" class="btn btn-primary">Thanh toán</a>
         @endif
+    
+            <section id="cart-add" class="section-p1">
+                <div id="subtotal">
+                    <h3 style="text-align: center; font-weight: 600; padding-bottom: 15px; color: var(--scondry--color);">
+                        Tổng Đơn Hàng</h3>
+
+                    <table>
+                        <tr>
+                            <td>Tổng Giỏ Hàng</td>
+                            <td>{{ number_format($totalAmount, 2) }} VNĐ</td>
+                        </tr>
+                        <tr>
+                            <td>Tổng Số Lượng Sản Phẩm</td>
+                            <td>{{ $totalQuantity }} Sản Phẩm</td>
+                        </tr>
+                        <tr>
+                            <td>Phí Vận Chuyển</td>
+                            <td>Miễn Phí</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tổng Tiền Cần Thanh Toán</strong></td>
+                            <td><strong>{{ number_format($totalAmount, 2) }} VNĐ</strong></td>
+                       
+                        </tr>
+                   
+                    </table>
+                    <form action="{{route('checkout')}}" method="POST">
+                        @csrf
+                        <input type="hidden" name="name" value="">
+                    <button type="submit" class="btn btn-primary">Thanh toán   </button>
+                    </form>
+                </div>
+               
+               
+                
+            </section>
+        </div>
+
     </div>
-</div>
 @endsection
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>

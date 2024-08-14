@@ -2,6 +2,11 @@
 @extends('layout.admin')
 @section('contentsAdm')
 
+@if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 <!-- Page Heading -->
 <h1 class="h3 mb-2 text-gray-800">Quản Lý Tài Khoản</h1>
 

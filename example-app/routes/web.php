@@ -14,7 +14,6 @@ use App\Http\Controllers\ContactController;
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\ProductController;
 
 
@@ -31,9 +30,9 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileControllerAdmin::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileControllerAdmin::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileControllerAdmin::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
 require __DIR__.'/auth.php';
@@ -109,9 +108,6 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 Route::get('/account',[userController::class , 'index'])->name('account');
 Route::post('/admin/users/lock/{user_id}', [userController::class, 'lockUsers'])->name('admin.users.lock');
 Route::post('/admin/users/unlock/{user_id}', [userController::class, 'unLockUsers'])->name('admin.users.unlock');
-
-Route::get('/account',[UsersController::class , 'index'])->name('account');
-
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
 Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
 Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');

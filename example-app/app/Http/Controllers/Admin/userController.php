@@ -9,7 +9,7 @@ class userController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::all() ;
         return view('layout.admin.account', compact('users'));
     }
     public function lockUser($user_id)
@@ -18,7 +18,6 @@ class userController extends Controller
         $user = User::find($user_id);
         $user->status = 0; // Khóa tài khoản (0 = Khóa)
         $user->save();
-    
         return $user; // Trả về user vừa được cập nhật
     }
     
@@ -34,7 +33,9 @@ class userController extends Controller
     public function lockUsers($user_id)
 {
     $this->lockUser($user_id); // Gọi hàm lockUser
-    return redirect()->back()->with('status', 'Tài khoản đã bị khóa.');
+
+    
+    return redirect()->back()->with('status', 'Tài khoản đã được mở khóa.' );
 }
 
 public function unLockUsers($user_id)

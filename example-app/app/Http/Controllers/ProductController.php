@@ -54,6 +54,9 @@ class ProductController extends Controller
     {
         //
     }
+    
+
+    
 
     /**
      * Xoá sản phẩm

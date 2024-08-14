@@ -17,7 +17,7 @@ class HomepageController extends Controller
     // Hiển thị trang homepage
     public function index()
     {
-       
+
         $products = cache()->remember('products', 60, function () {
             return Product::all();
         });
@@ -28,7 +28,7 @@ class HomepageController extends Controller
     // Hiển thị trang sản phẩm
     public function products()
     {
-       
+
         $products = Product::all();
         $product_categories = Category::all();
 
@@ -48,8 +48,10 @@ class HomepageController extends Controller
             'product' => $product,
             'product_categories' => $product_categories
         ]);
+
     }
-    
+   
+
 
 
     // Hiển thị trang liên hệ
@@ -57,8 +59,8 @@ class HomepageController extends Controller
     {
 
         return view('layout.client.contact');
-       }
-    
+    }
+
 
 
     public function gioithieu()
@@ -71,7 +73,7 @@ class HomepageController extends Controller
         return view('layout.client.cart');
     }
 
- 
+
 
 
 
@@ -82,16 +84,16 @@ class HomepageController extends Controller
         $totalAmount = $carts->sum('total');
         $totalQuantity = $carts->sum('quantity');
 
-        return view('layout.client.checkout' ,compact('carts', 'totalAmount', 'totalQuantity'));
-       }
+        return view('layout.client.checkout', compact('carts', 'totalAmount', 'totalQuantity'));
+    }
 
 
-    
+
     public function getCartItems()
     {
         $user_id = Auth::id();
         $cartItems = Cart::where('user_id', $user_id)->with('product')->get();
-    
+
         return response()->json($cartItems);
     }
 }

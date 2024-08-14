@@ -12,6 +12,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\client\ProductController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\OrderController;
 
 // Client routes
 
@@ -34,13 +35,21 @@ Route::prefix('/')->group(function () {
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
 
     Route::post('/momo_payment', [CheckoutController::class, 'momo_payment'])->name('momo_payment');
-
-    Route::post('/vnpay_payment', [CheckoutController::class, 'vnpay_payment'])->name('vnpay_payment');
-
     Route::post('/thanhtoan', [HomepageController::class, 'thanhtoan'])->name('checkout');
-    
     Route::get('/blog', [BlogController::class, 'blog'])->name('blog');
     Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
+
+    Route::post('/momo/ipn', [CheckoutController::class, 'momo_ipn'])->name('momo.ipn');
+    Route::get('/checkout-success', function () {
+        return view('layout.client.checkout-success');
+    })->name('checkout.success');
+    
+
+
+  
+
+
+
 
 });
 

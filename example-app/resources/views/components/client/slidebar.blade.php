@@ -207,7 +207,7 @@
                     </a>
     
                     <div class="card-text">
-    <span class="rating secondary-font">
+                        <span class="rating secondary-font">
                         <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
                         <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
                         <iconify-icon icon="clarity:star-solid" class="text-primary"></iconify-icon>
@@ -270,9 +270,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-    New
-                </div> -->
+              
                 <div class="card position-relative">
                   <a href="single-product.html"><img src="{{asset('assets/client/images/item7.jpg')}}" class="img-fluid rounded-4" alt="image"></a>
                   <div class="card-body p-0">
@@ -307,9 +305,7 @@
                 </div>
               </div>
               <div class="swiper-slide">
-                <!-- <div class="z-1 position-absolute rounded-3 m-3 px-3 border border-dark-subtle">
-                  New
-                </div> -->
+               
                 <div class="card position-relative">
                   <a href="single-product.html"><img src="{{asset('assets/client/images/item8.jpg')}}" class="img-fluid rounded-4" alt="image"></a>
                   <div class="card-body p-0">
@@ -332,7 +328,7 @@
                         <a href="#" class="btn-cart me-3 px-4 pt-3 pb-3">
                           <h5 class="text-uppercase m-0">Add to Cart</h5>
                         </a>
-    <a href="#" class="btn-wishlist px-4 pt-3 ">
+                        <a href="#" class="btn-wishlist px-4 pt-3 ">
                           <iconify-icon icon="fluent:heart-28-filled" class="fs-5"></iconify-icon>
                         </a>
                       </div>
@@ -1042,145 +1038,6 @@
         </div>
       </section>
     
-      <section id="latest-blog" class="my-5">
-        <div class="container py-5 my-5">
-          <div class="row mt-5">
-            <div class="section-header d-md-flex justify-content-between align-items-center mb-3">
-              <h2 class="display-3 fw-normal">Latest Blog Post</h2>
-              <div>
-                <a href="#" class="btn btn-outline-dark btn-lg text-uppercase fs-6 rounded-1">
-                  Read all
-                  <svg width="24" height="24" viewBox="0 0 24 24" class="mb-1">
-                    <use xlink:href="#arrow-right"></use>
-                  </svg></a>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 my-4 my-md-0">
-              <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-                <h3 class="secondary-font text-primary m-0">20</h3>
-                <p class="secondary-font fs-6 m-0">Feb</p>
-    
-              </div>
-              <div class="card position-relative">
-                <a href="single-post.html"><img src="images/blog1.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-post.html">
-                    <h3 class="card-title pt-4 pb-3 m-0">10 Reasons to be helpful towards any animals</h3>
-                  </a>
-    
-                  <div class="card-text">
-                    <p class="blog-paragraph fs-6">At the core of our practice is the idea that cities are the incubators of
-                      our greatest
-                      achievements, and the best hope for a sustainable future.</p>
-                    <a href="single-post.html" class="blog-read">read more</a>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 my-4 my-md-0">
-              <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-                <h3 class="secondary-font text-primary m-0">21</h3>
-                <p class="secondary-font fs-6 m-0">Feb</p>
-    
-              </div>
-              <div class="card position-relative">
-                <a href="single-post.html"><img src="images/blog2.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-post.html">
-                    <h3 class="card-title pt-4 pb-3 m-0">How to know your pet is hungry</h3>
-                  </a>
-    
-                  <div class="card-text">
-                    <p class="blog-paragraph fs-6">At the core of our practice is the idea that cities are the incubators of
-                      our greatest
-                      achievements, and the best hope for a sustainable future.</p>
-    <a href="single-post.html" class="blog-read">read more</a>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4 my-4 my-md-0">
-              <div class="z-1 position-absolute rounded-3 m-2 px-3 pt-1 bg-light">
-                <h3 class="secondary-font text-primary m-0">22</h3>
-                <p class="secondary-font fs-6 m-0">Feb</p>
-    
-              </div>
-              <div class="card position-relative">
-                <a href="single-post.html"><img src="images/blog3.jpg" class="img-fluid rounded-4" alt="image"></a>
-                <div class="card-body p-0">
-                  <a href="single-post.html">
-                    <h3 class="card-title pt-4 pb-3 m-0">Best home for your pets</h3>
-                  </a>
-    
-                  <div class="card-text">
-                    <p class="blog-paragraph fs-6">At the core of our practice is the idea that cities are the incubators of
-                      our greatest
-                      achievements, and the best hope for a sustainable future.</p>
-                    <a href="single-post.html" class="blog-read">read more</a>
-                  </div>
-    
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    
-      <section id="service">
-        <div class="container py-5 my-5">
-          <div class="row g-md-5 pt-4">
-            <div class="col-md-3 my-3">
-              <div class="card">
-                <div>
-                  <iconify-icon class="service-icon text-primary" icon="la:shopping-cart"></iconify-icon>
-                </div>
-                <h3 class="card-title py-2 m-0">Free Delivery</h3>
-                <div class="card-text">
-                  <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 my-3">
-              <div class="card">
-                <div>
-                  <iconify-icon class="service-icon text-primary" icon="la:user-check"></iconify-icon>
-                </div>
-                <h3 class="card-title py-2 m-0">100% secure payment</h3>
-                <div class="card-text">
-                  <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 my-3">
-              <div class="card">
-                <div>
-                  <iconify-icon class="service-icon text-primary" icon="la:tag"></iconify-icon>
-                </div>
-                <h3 class="card-title py-2 m-0">Daily Offer</h3>
-                <div class="card-text">
-                  <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 my-3">
-              <div class="card">
-                <div>
-                  <iconify-icon class="service-icon text-primary" icon="la:award"></iconify-icon>
-                </div>
-                <h3 class="card-title py-2 m-0">Quality guarantee</h3>
-                <div class="card-text">
-    <p class="blog-paragraph fs-6">Lorem ipsum dolor sit amet, consectetur adipi elit.</p>
-                </div>
-              </div>
-            </div>
-    
-          </div>
-        </div>
-      </section>
     
       <section id="insta" class="my-5">
         <div class="row g-0 py-5">

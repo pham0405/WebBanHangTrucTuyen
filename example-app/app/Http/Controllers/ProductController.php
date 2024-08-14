@@ -1,68 +1,62 @@
 <?php
-
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-    }
+    // public function index(Request $request)
+    // {
+    //     $search = $request->input('query');
+    //     $product_categories = Category::all();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+    //     if ($search) {
+    //         $products = Product::where('name', 'like', "%{$search}%")->get();
+    //     } else {
+    //         $products = Product::all();
+    //     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+    //     return view('layout.client.products', [
+    //         'products' => $products,
+    //         'product_categories' => $product_categories
+    //     ]);
+    // }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+    // public function show($id)
+    // {
+    //     $product = Product::find($id);
 
-    /**
-     * Sửa sản phẩm
-     */
-    public function edit($id)
-    {
-        $product = Product::findOrFail($id);
-        return view('products.edit', compact('product'));
-    }
+    //     if (!$product) {
+    //         abort(404);
+    //     }
 
-    /**
-     * Cập nhật sản phẩm
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
+    //     $product_categories = Category::all();
+    //     $comments = $product->comments()->latest()->get(); 
 
-    /**
-     * Xoá sản phẩm
-     */
-    public function destroy($id)
-    {
-        $product = Product::findOrFail($id);
-        $product->delete();
+    //     return view('layout.client.products-detail', [
+    //         'product' => $product,
+    //         'product_categories' => $product_categories,
+    //         'comments' => $comments
+    //     ]);
+    // }
 
-        return redirect()->route('products.index')->with('success', 'Sản phẩm đã được xóa thành công.');
-    }
+    // public function productsByCategory($categoryId)
+    // {
+    //     $category = Category::find($categoryId);
+
+    //     if (!$category) {
+    //         abort(404);
+    //     }
+
+    //     $products = $category->products;
+    //     $product_categories = Category::all(); 
+
+    //     return view('layout.client.products', [
+    //         'products' => $products,
+    //         'product_categories' => $product_categories
+    //     ]);
+    // }
 }

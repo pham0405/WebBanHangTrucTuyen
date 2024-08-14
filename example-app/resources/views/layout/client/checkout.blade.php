@@ -58,8 +58,14 @@
                     </select>
                 </div>
                 <br>
-                <input type="hidden" name="total_momo" value="{{ $totalAmount }}">
-                <button type="submit" class="btn btn-primary">Thanh toán MOMO  </button>
+                <form action="{{ route('momo_payment') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="total_amount" value="{{ $totalAmount }}">
+                    <input type="hidden" name="name" value="{{ Auth::user()->name }}">
+                    <input type="hidden" name="email" value="{{ Auth::user()->email }}">
+                    <input type="hidden" name="phone_number" value="{{ Auth::user()->phone_number }}">
+                    <button type="submit" class="btn btn-primary">Thanh Toán MoMo</button>
+                </form>
             </form>
             <br>
             <!-- onePay Payment Form -->

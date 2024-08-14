@@ -8,7 +8,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\User;
 
-class DashboardController extends Controller
+class dashboardController extends Controller
 {
     public function dashboard()
     {

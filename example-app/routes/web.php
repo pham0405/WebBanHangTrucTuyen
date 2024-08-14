@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Admin\OrderController;
 
 use App\Http\Controllers\ContactController;
 
@@ -55,7 +56,7 @@ Route::prefix('/')->group(function () {
     Route::post('/contact', [ContactController::class, 'sendMail'])->name('contact.send');
     Route::get('/gioithieu', [HomepageController::class, 'gioithieu'])->name('gioithieu');
 
-
+    Route::post('/momo_payment', [CheckoutController::class, 'momo_payment'])->name('momo_payment');
     Route::post('/vnpay_payment', [CheckoutController::class, 'vnpay_payment'])->name('vnpay_payment');
 
     Route::post('/thanhtoan', [HomepageController::class, 'thanhtoan'])->name('checkout');
@@ -109,8 +110,8 @@ Route::get('/account',[userController::class , 'index'])->name('account');
 Route::post('/admin/users/lock/{user_id}', [userController::class, 'lockUsers'])->name('admin.users.lock');
 Route::post('/admin/users/unlock/{user_id}', [userController::class, 'unLockUsers'])->name('admin.users.unlock');
 Route::get('/comment',[AdminController::class , 'comment'])->name('comment');
-Route::get('/orders',[AdminController::class , 'orders'])->name('orders');
-Route::get('/ordersDetail',[AdminController::class , 'ordersDetail'])->name('ordersDetail');
+Route::get('/orders',[OrderController::class , 'orders'])->name('orders');
+Route::put('/orders/update-status/{id}', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
 
 
 //CategoryAdmin

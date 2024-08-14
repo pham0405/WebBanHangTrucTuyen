@@ -29,17 +29,11 @@ class AdminController extends Controller
     {
         return view('layout.admin.comment');
     }
-    public function orders()
-    {
-        return view('layout.admin.orders');
-    }
+   
     public function addProd()
     {
         return view('layout.admin.addProd');
     }
     
-    public function ordersDetail()
-    {
-        return view('layout.admin.ordersDetail');
-    }
+   
 }

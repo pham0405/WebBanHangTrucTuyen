@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\OderController;
 
 use App\Http\Controllers\client\HomepageController;
 
@@ -40,9 +41,11 @@ Route::prefix('/')->group(function () {
     Route::get('/blog/{id}', [BlogController::class, 'show'])->name('blog.show');
 
     Route::post('/momo/ipn', [CheckoutController::class, 'momo_ipn'])->name('momo.ipn');
-    Route::get('/checkout-success', function () {
-        return view('layout.client.checkout-success');
-    })->name('checkout.success');
+    Route::get('/checkout-success', [CheckoutController::class, 'showOrders'])->name('checkout.success');
+
+
+
+
     
 
 

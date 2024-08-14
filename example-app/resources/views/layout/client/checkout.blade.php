@@ -62,7 +62,7 @@
                 <input type="hidden" name="name" value="{{ auth()->user()->name }}">
                 <input type="hidden" name="email" value="{{ auth()->user()->email }}">
                 <input type="hidden" name="phone_number" value="{{ auth()->user()->phone_number }}">
-                <input type="hidden" name="quantity" value="1">
+                <input type="hidden" name="quantity" value="{{ $totalQuantity }} ">
                 <input type="hidden" name="total_momo" value="{{ $totalAmount }}">
                 <button type="submit" class="btn btn-primary">Thanh toán MOMO  </button>
             </form>

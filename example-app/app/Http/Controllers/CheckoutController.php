@@ -90,5 +90,17 @@ class CheckoutController extends Controller
         return redirect()->to($jsonResult['payUrl']);
     }
 
+    public function showOrders()
+    {
+           // Lấy ID của người dùng hiện tại
+    $userId = Auth::id();
+
+    // Lấy toàn bộ dữ liệu đơn hàng của người dùng từ cơ sở dữ liệu
+    $orders = Order::where('user_id', $userId)->get();
+        // Trả về view và truyền dữ liệu đơn hàng vào view
+        return view('layout.client.checkout-success', compact('orders'));
+    }
+    
+
 
 }
